@@ -70,6 +70,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         rSButtonRiple2.setBackground(new java.awt.Color(0, 58, 146));
         rSButtonRiple2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Imagenes/btn-minimizar.png"))); // NOI18N
+        rSButtonRiple2.setBorderPainted(false);
         rSButtonRiple2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rSButtonRiple2ActionPerformed(evt);
@@ -79,6 +80,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         rSButtonRiple1.setBackground(new java.awt.Color(0, 58, 146));
         rSButtonRiple1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Imagenes/btn-cerrar.png"))); // NOI18N
+        rSButtonRiple1.setBorderPainted(false);
         rSButtonRiple1.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         rSButtonRiple1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
