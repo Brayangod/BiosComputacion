@@ -212,14 +212,23 @@ public class FrmLogin extends javax.swing.JFrame {
                     txtUsuario.setFocusable(true);
                     txtPassword.setFocusable(true);
                     btnIniciar.setEnabled(true);
-                    if (login.verificarUsuario(txtUsuario.getText(), txtPassword.getText()) == 0) {
-                        JOptionPane.showMessageDialog(null, "Error en la base de datos");
-                    } else if (login.verificarUsuario(txtUsuario.getText(), txtPassword.getText()) == 1) {
-                        JOptionPane.showMessageDialog(null, "Su usuario y contraseña son correctos");
-                    } else if (login.verificarUsuario(txtUsuario.getText(), txtPassword.getText()) == 2) {
-
-                        JOptionPane.showMessageDialog(null, "Su usuario y/o contraseña son incorrectos");
+                    switch(login.verificarUsuario(txtUsuario.getText(), txtPassword.getText())){
+                        case 0 : JOptionPane.showMessageDialog(null, "Error en la base de datos");
+                        break;
+                        case 1 : JOptionPane.showMessageDialog(null, "Su usuario y contraseña son correctos");
+                        break;
+                        case 2 : JOptionPane.showMessageDialog(null, "Su usuario y/o contraseña son incorrectos");
+                        break;
+                        
                     }
+//                    if (login.verificarUsuario(txtUsuario.getText(), txtPassword.getText()) == 0) {
+//                        JOptionPane.showMessageDialog(null, "Error en la base de datos");
+//                    } else if (login.verificarUsuario(txtUsuario.getText(), txtPassword.getText()) == 1) {
+//                        JOptionPane.showMessageDialog(null, "Su usuario y contraseña son correctos");
+//                    } else if (login.verificarUsuario(txtUsuario.getText(), txtPassword.getText()) == 2) {
+//
+//                        JOptionPane.showMessageDialog(null, "Su usuario y/o contraseña son incorrectos");
+//                    }
                 } catch (Exception e) {
                 }
             }
