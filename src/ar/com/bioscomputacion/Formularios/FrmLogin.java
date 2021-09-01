@@ -28,6 +28,7 @@ public class FrmLogin extends javax.swing.JFrame {
         p_cargando.setVisible(false);
         new TextPrompt("¡Ingrese su usuario!",txtUsuario);
         new TextPrompt("¡Ingrese su contraseña!",txtPassword);
+        txtUsuario.requestFocus();
     }
 
     /**

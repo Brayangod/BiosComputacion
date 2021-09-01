@@ -6,7 +6,9 @@
 package ar.com.bioscomputacion.Main;
 
 import ar.com.bioscomputacion.Formularios.FrmLogin;
+import ar.com.bioscomputacion.Formularios.FrmRegistro;
 import ar.com.bioscomputacion.Funciones.ConexionBD;
+import ar.com.bioscomputacion.Funciones.Iniciar;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,8 +18,16 @@ import javax.swing.JOptionPane;
 public class Ejecutar {
     public static void main(String[] args) {
         ConexionBD conexion = new ConexionBD();
+        Iniciar funcion = new Iniciar();
         if(conexion.getConexionBD() != null){
-            FrmLogin.main(args);
+            if(funcion.hayUsuariosCreados()){
+                FrmLogin.main(args);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Por favor cree el primer usuario del sistema");
+                FrmRegistro.main(args);
+            }
+            
         }
         else{
             JOptionPane.showMessageDialog(null, "Hubo un error al conectar con la base de datos!");

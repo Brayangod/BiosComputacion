@@ -32,4 +32,16 @@ public class Iniciar {
         }
         return 2;
     }
+    public boolean hayUsuariosCreados(){
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM usuario");
+            
+            while(rs.next()){
+                return true;
+            }
+        } catch (Exception e) {
+        }
+        return false;
+    }
 }
