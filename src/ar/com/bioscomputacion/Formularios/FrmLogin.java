@@ -219,6 +219,9 @@ public class FrmLogin extends javax.swing.JFrame {
                         case 0 : JOptionPane.showMessageDialog(null, "Error en la base de datos");
                         break;
                         case 1 : JOptionPane.showMessageDialog(null, "Su usuario y contraseña son correctos");
+                        FrmPrincipal form = new FrmPrincipal();
+                        form.setVisible(true);
+                        FrmLogin.this.dispose();
                         break;
                         case 2 : JOptionPane.showMessageDialog(null, "Su usuario y/o contraseña son incorrectos");
                         break;
