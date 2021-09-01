@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class ConexionBD {
     
-    public String db = "bioscomputacion";
+    public String db = "bioscomputacion2021";
     public String url = "jdbc:mysql://127.0.0.1/" + db;
     public String user = "root";
     public String pass = "root";

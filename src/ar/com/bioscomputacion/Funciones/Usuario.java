@@ -79,23 +79,22 @@ public class Usuario extends Persona {
         try {
             ConexionBD mysql = new ConexionBD();
             Connection cn = mysql.getConexionBD();
-            PreparedStatement pst = cn.prepareStatement("INSERT INTO persona (nombre_persona,direccion,telefono,email,dni) "
+            PreparedStatement pst = cn.prepareStatement("INSERT INTO persona (nombre,num_documento,direccion,telefono,email) "
                     + "VALUES (?,?,?,?,?)");
-            PreparedStatement pst2 = cn.prepareStatement("INSERT INTO usuario (cod_usuario,rut_usuario,login,password,estado,acceso) VALUES ((select cod_persona from persona order by cod_persona desc limit 1),"
-                    + "?,?,?,?,?)");
+            PreparedStatement pst2 = cn.prepareStatement("INSERT INTO usuario (cod_persona,login,password,tipo,estado) VALUES ((select cod_persona from persona order by cod_persona desc limit 1),"
+                    + "?,?,?,?)");
             
             
             pst.setString(1, usuario.getNombre());
-            pst.setString(2, usuario.getDireccion());
-            pst.setString(3, usuario.getTelefono());
-            pst.setString(4, usuario.getEmail());
-            pst.setString(5, usuario.getDni());
+            pst.setString(2, usuario.getDni());
+            pst.setString(3, usuario.getDireccion());
+            pst.setString(4, usuario.getTelefono());
+            pst.setString(5, usuario.getEmail());
             
-            pst2.setString(1, usuario.getDni());
-            pst2.setString(2, usuario.getUsuario());
-            pst2.setString(3, usuario.getContraseña());
+            pst2.setString(1, usuario.getUsuario());
+            pst2.setString(2, usuario.getContraseña());
+            pst2.setString(3, usuario.getAcceso());
             pst2.setString(4, usuario.getEstado());
-            pst2.setString(5, usuario.getAcceso());
             
             int N = pst.executeUpdate();
             int N2 = pst2.executeUpdate();
