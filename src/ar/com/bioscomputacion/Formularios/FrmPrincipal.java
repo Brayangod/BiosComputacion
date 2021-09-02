@@ -7,6 +7,7 @@ package ar.com.bioscomputacion.Formularios;
 
 import java.awt.Graphics;
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicMenuBarUI;
 
 /**
@@ -46,6 +47,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bios Computacion - SERVICES Y VENTAS");
@@ -99,6 +104,40 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu4.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         menuPrincipal.add(jMenu4);
 
+        jMenu5.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/cuenta_corriente.png"))); // NOI18N
+        jMenu5.setText("CTA. CTE");
+        jMenu5.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        menuPrincipal.add(jMenu5);
+
+        jMenu6.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/herramientas.png"))); // NOI18N
+        jMenu6.setText("HERRAMIENTAS");
+        jMenu6.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        menuPrincipal.add(jMenu6);
+
+        jMenu7.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/producto.png"))); // NOI18N
+        jMenu7.setText("PRODUCTOS");
+        jMenu7.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        menuPrincipal.add(jMenu7);
+
+        jMenu8.setForeground(new java.awt.Color(255, 255, 255));
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/cerrar_sesion.png"))); // NOI18N
+        jMenu8.setText("CERRAR SESIÓN");
+        jMenu8.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu8MouseClicked(evt);
+            }
+        });
+        jMenu8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu8ActionPerformed(evt);
+            }
+        });
+        menuPrincipal.add(jMenu8);
+
         setJMenuBar(menuPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,6 +153,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu8ActionPerformed
+
+    }//GEN-LAST:event_jMenu8ActionPerformed
+
+    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+        this.dispose();
+        FrmLogin form = new FrmLogin();
+        form.setVisible(true);
+    }//GEN-LAST:event_jMenu8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -157,6 +206,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar menuPrincipal;
     // End of variables declaration//GEN-END:variables
 }
