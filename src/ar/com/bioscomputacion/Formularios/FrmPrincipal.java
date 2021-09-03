@@ -6,6 +6,7 @@
 package ar.com.bioscomputacion.Formularios;
 
 import java.awt.Graphics;
+import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicMenuBarUI;
@@ -22,6 +23,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public FrmPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/forms.png")).getImage());
         menuPrincipal.setOpaque(true);
         menuPrincipal.setUI(new BasicMenuBarUI() {
             public void paint(Graphics g, JComponent c) {

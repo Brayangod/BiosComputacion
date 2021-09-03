@@ -11,6 +11,7 @@ import ar.com.bioscomputacion.Funciones.TextPrompt;
 import java.awt.Desktop;
 import java.net.URI;
 import java.sql.*;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,6 +30,7 @@ public class FrmLogin extends javax.swing.JFrame {
         new TextPrompt("¡Ingrese su usuario!",txtUsuario);
         new TextPrompt("¡Ingrese su contraseña!",txtPassword);
         txtUsuario.requestFocus();
+        setIconImage(new ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/forms.png")).getImage());
     }
 
     /**
