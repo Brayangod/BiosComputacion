@@ -5,6 +5,7 @@
  */
 package ar.com.bioscomputacion.Formularios;
 
+import java.awt.Dimension;
 import java.awt.Graphics;
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -47,6 +48,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuPrincipal = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -79,8 +81,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addGap(132, 132, 132))
         );
 
-        menuPrincipal.setBackground(new java.awt.Color(68, 107, 139));
-        menuPrincipal.setForeground(new java.awt.Color(68, 107, 139));
+        menuPrincipal.setBackground(new java.awt.Color(47, 110, 164));
+        menuPrincipal.setForeground(new java.awt.Color(47, 110, 164));
 
         jMenu1.setForeground(new java.awt.Color(255, 255, 255));
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/venta.png"))); // NOI18N
@@ -88,10 +90,28 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu1.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         menuPrincipal.add(jMenu1);
 
+        jMenu2.setBackground(new java.awt.Color(51, 84, 111));
         jMenu2.setForeground(new java.awt.Color(255, 255, 255));
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/planilla_control.png"))); // NOI18N
         jMenu2.setText("PLANILLA DE CONTROL");
         jMenu2.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+
+        jMenuItem1.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem1.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem1.setText("Planilla diaria");
+        jMenuItem1.setOpaque(true);
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem1);
+
         menuPrincipal.add(jMenu2);
 
         jMenu3.setForeground(new java.awt.Color(255, 255, 255));
@@ -162,9 +182,28 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         this.dispose();
+
         FrmLogin form = new FrmLogin();
         form.setVisible(true);
     }//GEN-LAST:event_jMenu8MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+  
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        FrmPlanillaDeControl form = new FrmPlanillaDeControl();
+
+        deskPrincipal.add(form);
+        Dimension desktopSize = deskPrincipal.getSize();
+        Dimension FrameSize = form.getSize();
+
+        form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        form.setVisible(true);
+
+        form.setClosable(true);
+        form.setIconifiable(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,6 +251,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuPrincipal;
     // End of variables declaration//GEN-END:variables
 }
