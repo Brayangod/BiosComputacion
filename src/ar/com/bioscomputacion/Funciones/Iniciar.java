@@ -14,6 +14,10 @@ import java.sql.*;
 public class Iniciar {
     ConexionBD mysql = new ConexionBD();
     Connection cn = mysql.getConexionBD();
+    public Integer cod_persona;
+    public String nombre;
+    public String tipo;
+    
     public int verificarUsuario(String usuario, String contraseña){
 //        0 = No se pudo conecta a la base de datos
 //        1 = Se encontro usuario y contraseña
@@ -23,9 +27,12 @@ public class Iniciar {
                 return 0;
             }
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM usuario WHERE login='"+usuario+"' AND password='"+contraseña+"'");
+            ResultSet rs = st.executeQuery("SELECT * FROM usuario u INNER JOIN persona p WHERE u.login='"+usuario+"' AND u.password='"+contraseña+"'");
             
             while(rs.next()){
+                cod_persona = rs.getInt("u.cod_persona");
+                nombre = rs.getString("p.nombre");
+                tipo = rs.getString("u.tipo");
                 return 1;
             }
         } catch (Exception e) {

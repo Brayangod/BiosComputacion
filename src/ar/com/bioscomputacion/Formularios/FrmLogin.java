@@ -27,8 +27,8 @@ public class FrmLogin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         p_cargando.setVisible(false);
-        new TextPrompt("¡Ingrese su usuario!",txtUsuario);
-        new TextPrompt("¡Ingrese su contraseña!",txtPassword);
+        new TextPrompt("¡Ingrese su usuario!", txtUsuario);
+        new TextPrompt("¡Ingrese su contraseña!", txtPassword);
         txtUsuario.requestFocus();
         setIconImage(new ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/forms.png")).getImage());
     }
@@ -193,12 +193,12 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
 
-        if(txtUsuario.getText().length() == 0){
+        if (txtUsuario.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Ingrese el usuario");
             txtUsuario.requestFocus();
             return;
         }
-        if(txtPassword.getText().length() == 0){
+        if (txtPassword.getText().length() == 0) {
             JOptionPane.showMessageDialog(null, "Ingrese la contraseña");
             txtPassword.requestFocus();
             return;
@@ -217,17 +217,21 @@ public class FrmLogin extends javax.swing.JFrame {
                     txtUsuario.setFocusable(true);
                     txtPassword.setFocusable(true);
                     btnIniciar.setEnabled(true);
-                    switch(login.verificarUsuario(txtUsuario.getText(), txtPassword.getText())){
-                        case 0 : JOptionPane.showMessageDialog(null, "Error en la base de datos");
-                        break;
-                        case 1 : JOptionPane.showMessageDialog(null, "Su usuario y contraseña son correctos");
-                        FrmPrincipal form = new FrmPrincipal();
-                        form.setVisible(true);
-                        FrmLogin.this.dispose();
-                        break;
-                        case 2 : JOptionPane.showMessageDialog(null, "Su usuario y/o contraseña son incorrectos");
-                        break;
-                        
+                    switch (login.verificarUsuario(txtUsuario.getText(), txtPassword.getText())) {
+                        case 0:
+                            JOptionPane.showMessageDialog(null, "Error en la base de datos");
+                            break;
+                        case 1:
+                            FrmPrincipal form = new FrmPrincipal();
+                            form.setVisible(true);
+                            form.lbNombre.setText(login.nombre);
+                            form.lbTipo.setText(login.tipo);
+                            FrmLogin.this.dispose();
+                            break;
+                        case 2:
+                            JOptionPane.showMessageDialog(null, "Su usuario y/o contraseña son incorrectos");
+                            break;
+
                     }
 //                    if (login.verificarUsuario(txtUsuario.getText(), txtPassword.getText()) == 0) {
 //                        JOptionPane.showMessageDialog(null, "Error en la base de datos");

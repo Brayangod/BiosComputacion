@@ -113,7 +113,18 @@ public class Planilla {
         String[] titulos = {"CODIGO","VENDEDOR","FECHA","RUBRO","OBSERVACION","TIPO","INGRESOS","EGRESOS"};
         String[] registros = new String[8];
         
-        modelo = new DefaultTableModel(null,titulos);
+        modelo = new DefaultTableModel(null,titulos){
+            @Override
+            public boolean isCellEditable(int filas, int culumnas) {
+                if (culumnas == 8) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            }
+
+        };
         
         try {
             Statement st = cn.createStatement();
