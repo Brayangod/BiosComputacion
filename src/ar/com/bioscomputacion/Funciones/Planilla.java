@@ -45,6 +45,9 @@ public class Planilla {
     public int getCod_movimiento() {
         return cod_movimiento;
     }
+    public void setCod_movimiento(int cod_movimiento){
+        this.cod_movimiento = cod_movimiento;
+    }
 
     public String getNom_vendedor() {
         return nom_vendedor;
@@ -157,7 +160,6 @@ public class Planilla {
             PreparedStatement pst = cn.prepareStatement("INSERT INTO planilla (nom_vendedor,fecha_movimiento,rubro,observacion,tipo_moneda,ingresos,egresos) VALUES (?,?,?,?,?,?,?)");
             
             pst.setString(1, datos.getNom_vendedor());
-            System.out.println("pst = " + datos.getNom_vendedor());
             pst.setTimestamp(2, datos.getFecha());
             pst.setString(3, datos.getRubro());
             pst.setString(4, datos.getObservacion());
@@ -179,5 +181,46 @@ public class Planilla {
             return false;
         }
         
+    }
+    public boolean editar(Planilla datos){
+        try {
+            PreparedStatement pst = cn.prepareStatement("UPDATE planilla SET nom_vendedor = ?,rubro = ?,observacion = ?,tipo_moneda = ?,ingresos = ?,egresos = ?"
+                    + " WHERE cod_movimiento='"+datos.getCod_movimiento()+"'");
+            
+            pst.setString(1, datos.getNom_vendedor());
+            pst.setString(2, datos.getRubro());
+            pst.setString(3, datos.getObservacion());
+            pst.setString(4, datos.getTipo_moneda());
+            pst.setDouble(5, datos.getIngresos());
+            pst.setDouble(6, datos.getEgresos());
+            
+            int N = pst.executeUpdate();
+            if (N != 0) {
+                return true;
+            } else {
+
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
+    }
+    public boolean eliminar(int cod_movimiento){
+        try {
+            PreparedStatement pst = cn.prepareStatement("DELETE FROM planilla WHERE cod_movimiento='"+cod_movimiento+"'");
+            
+            int N = pst.executeUpdate();
+            
+            if (N != 0) {
+                return true;
+            } else {
+
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+            return false;
+        }
     }
 }

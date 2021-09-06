@@ -16,14 +16,15 @@ import javax.swing.JOptionPane;
  *
  * @author braya
  */
-public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFrame {
+public class FrmPlanillaDeControlEditarMovimiento extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form FrmPlanillaDeControlNuevoMovimiento
+     * Creates new form FrmPlanillaDeControlEditarMovimiento
      */
-    public FrmPlanillaDeControlNuevoMovimiento() {
+    public FrmPlanillaDeControlEditarMovimiento() {
         initComponents();
         txtNombrepersona.setVisible(false);
+        txtCod_movimiento.setVisible(false);
     }
 
     /**
@@ -52,6 +53,7 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
         txtNombrepersona = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         rSButtonRiple1 = new rojeru_san.RSButtonRiple();
+        txtCod_movimiento = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(51, 84, 111));
 
@@ -61,7 +63,7 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
         jLabel1.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PLANILLA DE CONTROL - NUEVO MOVIMIENTO");
+        jLabel1.setText("PLANILLA DE CONTROL - EDITAR MOVIMIENTO");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,8 +137,8 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
         jLabel7.setText("$");
 
         rSButtonRiple1.setBackground(new java.awt.Color(47, 110, 164));
-        rSButtonRiple1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/nuevo.png"))); // NOI18N
-        rSButtonRiple1.setText("INSERTAR MOVIMIENTO");
+        rSButtonRiple1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/editar.png"))); // NOI18N
+        rSButtonRiple1.setText("EDITAR MOVIMIENTO");
         rSButtonRiple1.setFont(new java.awt.Font("Roboto Bold", 3, 14)); // NOI18N
         rSButtonRiple1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +180,8 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelShadow1Layout.createSequentialGroup()
                         .addComponent(rSButtonRiple1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtCod_movimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNombrepersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE))
                 .addContainerGap())
@@ -210,9 +214,11 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
                     .addComponent(jLabel6)
                     .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtNombrepersona, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNombrepersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCod_movimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(rSButtonRiple1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -270,18 +276,6 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
         }
     }//GEN-LAST:event_JcbMovimientoActionPerformed
 
-    private void jCbRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbRubroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCbRubroActionPerformed
-
-    private void jCbTipoMonedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbTipoMonedaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCbTipoMonedaActionPerformed
-
-    private void txtMontoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoKeyReleased
-        
-    }//GEN-LAST:event_txtMontoKeyReleased
-
     private void txtMontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMontoActionPerformed
         DecimalFormatSymbols simbolos = new DecimalFormatSymbols();
         simbolos.setDecimalSeparator('.');
@@ -289,6 +283,18 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
         Double monto = Double.valueOf(txtMonto.getText());
         txtMonto.setText(formateador.format(monto));
     }//GEN-LAST:event_txtMontoActionPerformed
+
+    private void txtMontoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMontoKeyReleased
+
+    }//GEN-LAST:event_txtMontoKeyReleased
+
+    private void jCbRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbRubroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCbRubroActionPerformed
+
+    private void jCbTipoMonedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbTipoMonedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCbTipoMonedaActionPerformed
 
     private void rSButtonRiple1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonRiple1ActionPerformed
         java.util.Date dt = new java.util.Date();
@@ -298,38 +304,40 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
         Planilla planilla;
         if(JcbMovimiento.getSelectedItem().equals("INGRESO")){
             planilla = new Planilla(txtNombrepersona.getText(), Timestamp.valueOf(currentTime), jCbRubro.getSelectedItem().toString(), txtObservaciones.getText(), jCbTipoMoneda.getSelectedItem().toString(), Double.valueOf(txtMonto.getText()), 0.00);
-            if(planilla.insertar(planilla)){
-                JOptionPane.showMessageDialog(null, "Movimiento dado de alta satisfactoriamente");
+            planilla.setCod_movimiento(Integer.parseInt(txtCod_movimiento.getText()));
+            if(planilla.editar(planilla)){
+                JOptionPane.showMessageDialog(null, "Movimiento editado satisfactoriamente");
                 this.dispose();
                 FrmPlanillaDeControl.btnActualizar.doClick();
             }
             else{
-                JOptionPane.showMessageDialog(null, "Ocurrió un error al agrega movimiento");
+                JOptionPane.showMessageDialog(null, "Ocurrió un error al editar movimiento");
                 this.dispose();
                 FrmPlanillaDeControl.btnActualizar.doClick();
             }
         }
         else if(JcbMovimiento.getSelectedItem().equals("EGRESO")){
             planilla = new Planilla(txtNombrepersona.getText(), Timestamp.valueOf(currentTime), jCbRubro.getSelectedItem().toString(), txtObservaciones.getText(), jCbTipoMoneda.getSelectedItem().toString(), 0.00, Double.valueOf(txtMonto.getText()));
-            if(planilla.insertar(planilla)){
-                JOptionPane.showMessageDialog(null, "Movimiento dado de alta satisfactoriamente");
+            planilla.setCod_movimiento(Integer.parseInt(txtCod_movimiento.getText()));
+            if(planilla.editar(planilla)){
+                JOptionPane.showMessageDialog(null, "Movimiento editado satisfactoriamente");
                 this.dispose();
                 FrmPlanillaDeControl.btnActualizar.doClick();
             }
             else{
-                JOptionPane.showMessageDialog(null, "Ocurrió un error al agrega movimiento");
+                JOptionPane.showMessageDialog(null, "Ocurrió un error al editar movimiento");
                 this.dispose();
                 FrmPlanillaDeControl.btnActualizar.doClick();
             }
         }
-        
+
     }//GEN-LAST:event_rSButtonRiple1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> JcbMovimiento;
-    private javax.swing.JComboBox<String> jCbRubro;
-    private javax.swing.JComboBox<String> jCbTipoMoneda;
+    public javax.swing.JComboBox<String> JcbMovimiento;
+    public javax.swing.JComboBox<String> jCbRubro;
+    public javax.swing.JComboBox<String> jCbTipoMoneda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -341,8 +349,9 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
     private javax.swing.JSeparator jSeparator1;
     private rojeru_san.RSButtonRiple rSButtonRiple1;
     private rojeru_san.RSPanelShadow rSPanelShadow1;
-    private javax.swing.JTextField txtMonto;
+    public javax.swing.JTextField txtCod_movimiento;
+    public javax.swing.JTextField txtMonto;
     public javax.swing.JTextField txtNombrepersona;
-    private javax.swing.JTextField txtObservaciones;
+    public javax.swing.JTextField txtObservaciones;
     // End of variables declaration//GEN-END:variables
 }

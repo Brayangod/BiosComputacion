@@ -33,10 +33,12 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
     /**
      * Creates new form FrmPlanillaDeControl2
      */
+    int fila = -1;
     public FrmPlanillaDeControl() {
         initComponents();
         txtNombrepersona.setVisible(false);
         mostrar();
+        
 
     }
 
@@ -100,13 +102,13 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPlanilla = new javax.swing.JTable();
-        rSButtonRiple1 = new rojeru_san.RSButtonRiple();
-        rSButtonRiple2 = new rojeru_san.RSButtonRiple();
-        rSButtonRiple3 = new rojeru_san.RSButtonRiple();
+        btnNuevo = new rojeru_san.RSButtonRiple();
+        btnEditar = new rojeru_san.RSButtonRiple();
+        btnEliminar = new rojeru_san.RSButtonRiple();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNombrepersona = new javax.swing.JTextField();
-        rSButtonRiple4 = new rojeru_san.RSButtonRiple();
+        btnActualizar = new rojeru_san.RSButtonRiple();
 
         setTitle("PLANILLA DE CONTROL DIARIA");
 
@@ -130,27 +132,42 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
 
             }
         ));
+        tablaPlanilla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaPlanillaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaPlanilla);
 
-        rSButtonRiple1.setBackground(new java.awt.Color(47, 110, 164));
-        rSButtonRiple1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/nuevo.png"))); // NOI18N
-        rSButtonRiple1.setText("NUEVO MOVIMIENTO");
-        rSButtonRiple1.setFont(new java.awt.Font("Roboto Bold", 3, 14)); // NOI18N
-        rSButtonRiple1.addActionListener(new java.awt.event.ActionListener() {
+        btnNuevo.setBackground(new java.awt.Color(47, 110, 164));
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/nuevo.png"))); // NOI18N
+        btnNuevo.setText("NUEVO MOVIMIENTO");
+        btnNuevo.setFont(new java.awt.Font("Roboto Bold", 3, 14)); // NOI18N
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonRiple1ActionPerformed(evt);
+                btnNuevoActionPerformed(evt);
             }
         });
 
-        rSButtonRiple2.setBackground(new java.awt.Color(47, 110, 164));
-        rSButtonRiple2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/editar.png"))); // NOI18N
-        rSButtonRiple2.setText("EDITAR MOVIMIENTO");
-        rSButtonRiple2.setFont(new java.awt.Font("Roboto Bold", 3, 14)); // NOI18N
+        btnEditar.setBackground(new java.awt.Color(47, 110, 164));
+        btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/editar.png"))); // NOI18N
+        btnEditar.setText("EDITAR MOVIMIENTO");
+        btnEditar.setFont(new java.awt.Font("Roboto Bold", 3, 14)); // NOI18N
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
-        rSButtonRiple3.setBackground(new java.awt.Color(47, 110, 164));
-        rSButtonRiple3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/eliminar.png"))); // NOI18N
-        rSButtonRiple3.setText("ELIMINAR MOVIMIENTO");
-        rSButtonRiple3.setFont(new java.awt.Font("Roboto Bold", 3, 14)); // NOI18N
+        btnEliminar.setBackground(new java.awt.Color(47, 110, 164));
+        btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/eliminar.png"))); // NOI18N
+        btnEliminar.setText("ELIMINAR MOVIMIENTO");
+        btnEliminar.setFont(new java.awt.Font("Roboto Bold", 3, 14)); // NOI18N
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 255, 0));
@@ -160,13 +177,13 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("SALDO EN CAJA: $");
 
-        rSButtonRiple4.setBackground(new java.awt.Color(47, 110, 164));
-        rSButtonRiple4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/actualizar.png"))); // NOI18N
-        rSButtonRiple4.setText("ACTUALIZAR");
-        rSButtonRiple4.setFont(new java.awt.Font("Roboto Bold", 3, 14)); // NOI18N
-        rSButtonRiple4.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizar.setBackground(new java.awt.Color(47, 110, 164));
+        btnActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/actualizar.png"))); // NOI18N
+        btnActualizar.setText("ACTUALIZAR");
+        btnActualizar.setFont(new java.awt.Font("Roboto Bold", 3, 14)); // NOI18N
+        btnActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rSButtonRiple4ActionPerformed(evt);
+                btnActualizarActionPerformed(evt);
             }
         });
 
@@ -187,13 +204,13 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2))
                     .addGroup(rSPanelShadow1Layout.createSequentialGroup()
-                        .addComponent(rSButtonRiple1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rSButtonRiple2, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rSButtonRiple3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
-                        .addComponent(rSButtonRiple4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         rSPanelShadow1Layout.setVerticalGroup(
@@ -205,10 +222,10 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rSButtonRiple4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButtonRiple1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButtonRiple2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButtonRiple3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
@@ -244,7 +261,7 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rSButtonRiple1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonRiple1ActionPerformed
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         FrmPlanillaDeControlNuevoMovimiento form = new FrmPlanillaDeControlNuevoMovimiento();
         deskPrincipal.add(form);
         Dimension desktopSize = deskPrincipal.getSize();
@@ -254,26 +271,81 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
         form.setVisible(true);
 
         form.setClosable(true);
-        form.setIconifiable(true);
+        form.setIconifiable(false);
         form.txtNombrepersona.setText(this.txtNombrepersona.getText());
-    }//GEN-LAST:event_rSButtonRiple1ActionPerformed
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
-    private void rSButtonRiple4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonRiple4ActionPerformed
+    private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         mostrar();
-    }//GEN-LAST:event_rSButtonRiple4ActionPerformed
+    }//GEN-LAST:event_btnActualizarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        if(fila == -1){
+            JOptionPane.showMessageDialog(null, "Seleccione el movimiento a editar");
+            return;
+        }
+        FrmPlanillaDeControlEditarMovimiento form = new FrmPlanillaDeControlEditarMovimiento();
+        deskPrincipal.add(form);
+        Dimension desktopSize = deskPrincipal.getSize();
+        Dimension FrameSize = form.getSize();
+
+        form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        form.setVisible(true);
+
+        form.setClosable(true);
+        form.setIconifiable(false);
+        
+        form.txtNombrepersona.setText(this.txtNombrepersona.getText());
+        form.txtCod_movimiento.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 0).toString()));
+        if(Double.valueOf(tablaPlanilla.getValueAt(fila, 6).toString()) > 0.00){
+            form.JcbMovimiento.setSelectedItem("INGRESO");
+            form.txtMonto.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 6)));
+        }
+        else{
+            form.JcbMovimiento.setSelectedItem("EGRESO");
+            form.txtMonto.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 7)));
+        }
+        form.jCbRubro.setSelectedItem(String.valueOf(tablaPlanilla.getValueAt(fila, 3).toString()));
+        form.jCbTipoMoneda.setSelectedItem(String.valueOf(tablaPlanilla.getValueAt(fila, 5).toString()));
+        form.txtObservaciones.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 4).toString()));
+        
+        fila = -1;
+        
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void tablaPlanillaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPlanillaMouseClicked
+        fila = tablaPlanilla.getSelectedRow();
+    }//GEN-LAST:event_tablaPlanillaMouseClicked
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if(fila == -1){
+            return;
+        }
+        Planilla planilla = new Planilla();
+        if(planilla.eliminar(Integer.parseInt(tablaPlanilla.getValueAt(fila, 0).toString()))){
+            JOptionPane.showMessageDialog(null, "El movimiento se dio de baja satisfactoriamente");
+            btnActualizar.doClick();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Ocurrio un error al eliminar el movimiento");
+            btnActualizar.doClick();
+        }
+        fila = -1;
+        
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static rojeru_san.RSButtonRiple btnActualizar;
+    private rojeru_san.RSButtonRiple btnEditar;
+    private rojeru_san.RSButtonRiple btnEliminar;
+    private rojeru_san.RSButtonRiple btnNuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private rojeru_san.RSButtonRiple rSButtonRiple1;
-    private rojeru_san.RSButtonRiple rSButtonRiple2;
-    private rojeru_san.RSButtonRiple rSButtonRiple3;
-    private rojeru_san.RSButtonRiple rSButtonRiple4;
     private rojeru_san.RSPanelShadow rSPanelShadow1;
     private javax.swing.JTable tablaPlanilla;
     public javax.swing.JTextField txtNombrepersona;

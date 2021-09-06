@@ -162,6 +162,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         jMenuItem1.setBackground(new java.awt.Color(51, 84, 111));
         jMenuItem1.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem1.setText("Planilla diaria");
@@ -263,7 +264,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.setVisible(true);
 
         form.setClosable(true);
-        form.setIconifiable(true);
+        form.setIconifiable(false);
         form.txtNombrepersona.setText(this.lbNombre.getText());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
