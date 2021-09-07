@@ -11,6 +11,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -113,7 +115,7 @@ public class Planilla {
     public DefaultTableModel mostrar(Date fecha){
         DefaultTableModel modelo;
         
-        String[] titulos = {"CODIGO","VENDEDOR","FECHA","RUBRO","OBSERVACION","TIPO","INGRESOS","EGRESOS"};
+        String[] titulos = {"CODIGO","VENDEDOR","HORA","RUBRO","OBSERVACION","TIPO","INGRESOS","EGRESOS"};
         String[] registros = new String[8];
         
         modelo = new DefaultTableModel(null,titulos){
@@ -131,12 +133,12 @@ public class Planilla {
         
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT cod_movimiento,nom_vendedor,fecha_movimiento,rubro,observacion,tipo_moneda,ingresos,egresos FROM planilla WHERE fecha_movimiento between '"+fecha+" 00:00:00' and '"+fecha+" 23:59:59'");
+            ResultSet rs = st.executeQuery("SELECT cod_movimiento,nom_vendedor,DATE_FORMAT(fecha_movimiento,'%H:%i:%s'),rubro,observacion,tipo_moneda,ingresos,egresos FROM planilla WHERE fecha_movimiento between '"+fecha+" 00:00:00' and '"+fecha+" 23:59:59'");
             
-            while(rs.next()){
+            while(rs.next()){                
                 registros[0] = rs.getString("cod_movimiento");
                 registros[1] = rs.getString("nom_vendedor");
-                registros[2] = rs.getString("fecha_movimiento");
+                registros[2] = rs.getString("DATE_FORMAT(fecha_movimiento,'%H:%i:%s')");
                 registros[3] = rs.getString("rubro");
                 registros[4] = rs.getString("observacion");
                 registros[5] = rs.getString("tipo_moneda");
@@ -148,6 +150,7 @@ public class Planilla {
             return modelo;
             
         } catch (Exception e) {
+            System.out.println("e = " + e);
             return null;
         }
         
@@ -222,5 +225,27 @@ public class Planilla {
             System.out.println(e);
             return false;
         }
+    }
+    
+    public Double calcularSaldo(Date fecha){
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT ingresos,egresos FROM planilla WHERE fecha_movimiento between '"+fecha+" 00:00:00' and '"+fecha+" 23:59:59'");
+            
+            Double ingresos = 0.00;
+            Double egresos = 0.00;
+            Double total = 0.00;
+            
+            while(rs.next()){
+                ingresos = ingresos + Double.valueOf(rs.getString("ingresos"));
+                egresos = egresos + Double.valueOf(rs.getString("egresos"));
+            }
+            total = ingresos - egresos;
+            
+            return total;
+        } catch (Exception e) {
+            
+        }
+        return 0.00;
     }
 }

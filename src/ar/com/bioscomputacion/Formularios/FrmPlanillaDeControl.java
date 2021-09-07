@@ -6,8 +6,10 @@
 package ar.com.bioscomputacion.Formularios;
 
 import static ar.com.bioscomputacion.Formularios.FrmPrincipal.deskPrincipal;
-import ar.com.bioscomputacion.Funciones.ColorCeldaPlanillaControl;
+import ar.com.bioscomputacion.Funciones.ColorCeldaPlanillaControlCentrado;
+import ar.com.bioscomputacion.Funciones.ColorCeldaPlanillaControlDerecha;
 import ar.com.bioscomputacion.Funciones.Planilla;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.sql.Timestamp;
@@ -22,6 +24,7 @@ import java.sql.Date;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 
 /**
@@ -34,11 +37,11 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
      * Creates new form FrmPlanillaDeControl2
      */
     int fila = -1;
+
     public FrmPlanillaDeControl() {
         initComponents();
         txtNombrepersona.setVisible(false);
         mostrar();
-        
 
     }
 
@@ -48,15 +51,25 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
         DecimalFormat formateador = new DecimalFormat("0.00", simbolos);
 
         Planilla funcion = new Planilla();
-        ColorCeldaPlanillaControl color = new ColorCeldaPlanillaControl();
 
         java.util.Date dt = new java.util.Date();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String currentTime = sdf.format(dt);
-        
+
         tablaPlanilla.setModel(funcion.mostrar(Date.valueOf(currentTime)));
-        tablaPlanilla.setDefaultRenderer(Object.class, color);
+
+        ColorCeldaPlanillaControlCentrado colorCentrado = new ColorCeldaPlanillaControlCentrado();
+        ColorCeldaPlanillaControlDerecha colorDerecha = new ColorCeldaPlanillaControlDerecha();
+        tablaPlanilla.getColumnModel().getColumn(0).setCellRenderer(colorCentrado);
+        tablaPlanilla.getColumnModel().getColumn(1).setCellRenderer(colorCentrado);
+        tablaPlanilla.getColumnModel().getColumn(2).setCellRenderer(colorCentrado);
+        tablaPlanilla.getColumnModel().getColumn(3).setCellRenderer(colorCentrado);
+        tablaPlanilla.getColumnModel().getColumn(4).setCellRenderer(colorCentrado);
+        tablaPlanilla.getColumnModel().getColumn(5).setCellRenderer(colorCentrado);
+        tablaPlanilla.getColumnModel().getColumn(6).setCellRenderer(colorDerecha);
+        tablaPlanilla.getColumnModel().getColumn(7).setCellRenderer(colorDerecha);
+
         tablaPlanilla.getTableHeader().setDefaultRenderer(new DefaultTableCellRenderer() {
 
             @Override
@@ -69,9 +82,12 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
                 l.setBackground(new java.awt.Color(51, 153, 255));
                 l.setForeground(new java.awt.Color(0, 0, 0));
                 l.setFont(new java.awt.Font("Arial Italic", 1, 12));
+                setHorizontalAlignment(CENTER);
                 return l;
             }
         });
+        txtSaldo.setText(String.valueOf(formateador.format(funcion.calcularSaldo(Date.valueOf(currentTime)))));
+
     }
 
     public void insertar() {
@@ -105,7 +121,7 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
         btnNuevo = new rojeru_san.RSButtonRiple();
         btnEditar = new rojeru_san.RSButtonRiple();
         btnEliminar = new rojeru_san.RSButtonRiple();
-        jLabel2 = new javax.swing.JLabel();
+        txtSaldo = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txtNombrepersona = new javax.swing.JTextField();
         btnActualizar = new rojeru_san.RSButtonRiple();
@@ -122,7 +138,7 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("PLANILLA DE CONTROL DIARIA");
 
-        tablaPlanilla.setBackground(new java.awt.Color(0, 58, 146));
+        tablaPlanilla.setBackground(new java.awt.Color(204, 204, 204));
         tablaPlanilla.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         tablaPlanilla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -169,9 +185,9 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 255, 0));
-        jLabel2.setText("0.00");
+        txtSaldo.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
+        txtSaldo.setForeground(new java.awt.Color(153, 255, 0));
+        txtSaldo.setText("0.00");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -202,7 +218,7 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2))
+                        .addComponent(txtSaldo))
                     .addGroup(rSPanelShadow1Layout.createSequentialGroup()
                         .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -230,7 +246,7 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(txtSaldo)
                     .addComponent(jLabel3)
                     .addComponent(txtNombrepersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -277,10 +293,11 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         mostrar();
+        fila = -1;
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        if(fila == -1){
+        if (fila == -1) {
             JOptionPane.showMessageDialog(null, "Seleccione el movimiento a editar");
             return;
         }
@@ -294,23 +311,22 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
 
         form.setClosable(true);
         form.setIconifiable(false);
-        
+
         form.txtNombrepersona.setText(this.txtNombrepersona.getText());
         form.txtCod_movimiento.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 0).toString()));
-        if(Double.valueOf(tablaPlanilla.getValueAt(fila, 6).toString()) > 0.00){
+        if (Double.valueOf(tablaPlanilla.getValueAt(fila, 6).toString()) > 0.00) {
             form.JcbMovimiento.setSelectedItem("INGRESO");
             form.txtMonto.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 6)));
-        }
-        else{
+        } else {
             form.JcbMovimiento.setSelectedItem("EGRESO");
             form.txtMonto.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 7)));
         }
         form.jCbRubro.setSelectedItem(String.valueOf(tablaPlanilla.getValueAt(fila, 3).toString()));
         form.jCbTipoMoneda.setSelectedItem(String.valueOf(tablaPlanilla.getValueAt(fila, 5).toString()));
         form.txtObservaciones.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 4).toString()));
-        
+
         fila = -1;
-        
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void tablaPlanillaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaPlanillaMouseClicked
@@ -318,20 +334,20 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_tablaPlanillaMouseClicked
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        if(fila == -1){
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione el movimiento a eliminar");
             return;
         }
         Planilla planilla = new Planilla();
-        if(planilla.eliminar(Integer.parseInt(tablaPlanilla.getValueAt(fila, 0).toString()))){
+        if (planilla.eliminar(Integer.parseInt(tablaPlanilla.getValueAt(fila, 0).toString()))) {
             JOptionPane.showMessageDialog(null, "El movimiento se dio de baja satisfactoriamente");
             btnActualizar.doClick();
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Ocurrio un error al eliminar el movimiento");
             btnActualizar.doClick();
         }
         fila = -1;
-        
+
     }//GEN-LAST:event_btnEliminarActionPerformed
 
 
@@ -341,7 +357,6 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
     private rojeru_san.RSButtonRiple btnEliminar;
     private rojeru_san.RSButtonRiple btnNuevo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -349,5 +364,6 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
     private rojeru_san.RSPanelShadow rSPanelShadow1;
     private javax.swing.JTable tablaPlanilla;
     public javax.swing.JTextField txtNombrepersona;
+    private javax.swing.JLabel txtSaldo;
     // End of variables declaration//GEN-END:variables
 }
