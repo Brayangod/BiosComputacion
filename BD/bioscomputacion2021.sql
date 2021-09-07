@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-09-2021 a las 19:35:40
+-- Tiempo de generación: 07-09-2021 a las 20:29:06
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -41,6 +41,23 @@ CREATE TABLE `persona` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `planilla`
+--
+
+CREATE TABLE `planilla` (
+  `cod_movimiento` int(11) NOT NULL,
+  `nom_vendedor` varchar(60) NOT NULL,
+  `fecha_movimiento` datetime NOT NULL,
+  `rubro` varchar(100) NOT NULL,
+  `observacion` varchar(100) NOT NULL,
+  `tipo_moneda` varchar(60) NOT NULL,
+  `ingresos` decimal(20,2) DEFAULT NULL,
+  `egresos` decimal(20,2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuario`
 --
 
@@ -65,6 +82,12 @@ ALTER TABLE `persona`
   ADD KEY `nombre` (`nombre`);
 
 --
+-- Indices de la tabla `planilla`
+--
+ALTER TABLE `planilla`
+  ADD PRIMARY KEY (`cod_movimiento`);
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -80,6 +103,12 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `persona`
   MODIFY `cod_persona` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `planilla`
+--
+ALTER TABLE `planilla`
+  MODIFY `cod_movimiento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
