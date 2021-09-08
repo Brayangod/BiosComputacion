@@ -59,6 +59,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
 
@@ -198,6 +199,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/herramientas.png"))); // NOI18N
         jMenu6.setText("HERRAMIENTAS");
         jMenu6.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+
+        jMenuItem2.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem2.setText("Apertura caja");
+        jMenuItem2.setOpaque(true);
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem2);
+
         menuPrincipal.add(jMenu6);
 
         jMenu7.setForeground(new java.awt.Color(255, 255, 255));
@@ -268,6 +281,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.txtNombrepersona.setText(this.lbNombre.getText());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        FrmAperturaCaja form = new FrmAperturaCaja();
+
+        deskPrincipal.add(form);
+        Dimension desktopSize = deskPrincipal.getSize();
+        Dimension FrameSize = form.getSize();
+
+        form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        form.setVisible(true);
+
+        form.setClosable(true);
+        form.setIconifiable(false);
+        form.txtEmpleado.setText(this.lbNombre.getText());
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -318,6 +346,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     public javax.swing.JLabel lbNombre;
     public javax.swing.JLabel lbTipo;
     private javax.swing.JMenuBar menuPrincipal;
