@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-09-2021 a las 20:29:06
+-- Tiempo de generación: 08-09-2021 a las 20:53:48
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -22,6 +22,19 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `bioscomputacion2021` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `bioscomputacion2021`;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `apertura`
+--
+
+CREATE TABLE `apertura` (
+  `cod_apertura` int(11) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `cod_persona` int(11) NOT NULL,
+  `saldo` decimal(20,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -75,6 +88,13 @@ CREATE TABLE `usuario` (
 --
 
 --
+-- Indices de la tabla `apertura`
+--
+ALTER TABLE `apertura`
+  ADD PRIMARY KEY (`cod_apertura`),
+  ADD KEY `persona` (`cod_persona`);
+
+--
 -- Indices de la tabla `persona`
 --
 ALTER TABLE `persona`
@@ -99,6 +119,12 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `apertura`
+--
+ALTER TABLE `apertura`
+  MODIFY `cod_apertura` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
@@ -119,6 +145,12 @@ ALTER TABLE `usuario`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `apertura`
+--
+ALTER TABLE `apertura`
+  ADD CONSTRAINT `persona` FOREIGN KEY (`cod_persona`) REFERENCES `persona` (`cod_persona`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`
