@@ -5,10 +5,13 @@
  */
 package ar.com.bioscomputacion.Formularios;
 
+import ar.com.bioscomputacion.Funciones.Apertura;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +24,7 @@ public class FrmAperturaCaja extends javax.swing.JInternalFrame {
      */
     public FrmAperturaCaja() {
         initComponents();
+        txtCod_usuario.setVisible(false);
         Calendar calendario = new GregorianCalendar();
         dateApertura.setCalendar(calendario);
         dateApertura.setEnabled(false);
@@ -63,6 +67,7 @@ public class FrmAperturaCaja extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         txtSaldo = new javax.swing.JTextField();
         btnAbrir = new rojeru_san.RSButtonRiple();
+        txtCod_usuario = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(51, 84, 111));
 
@@ -144,7 +149,9 @@ public class FrmAperturaCaja extends javax.swing.JInternalFrame {
                                 .addGap(184, 184, 184)
                                 .addComponent(txtSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(rSPanelShadow1Layout.createSequentialGroup()
-                                .addGap(237, 237, 237)
+                                .addContainerGap()
+                                .addComponent(txtCod_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(221, 221, 221)
                                 .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 176, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -173,9 +180,14 @@ public class FrmAperturaCaja extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
-                .addComponent(txtSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(rSPanelShadow1Layout.createSequentialGroup()
+                        .addComponent(txtSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                        .addComponent(btnAbrir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(rSPanelShadow1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtCod_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -205,7 +217,21 @@ public class FrmAperturaCaja extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
+
+        java.util.Date dt = new java.util.Date();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String currentTime = sdf.format(dt);
         
+        Apertura apertura = new Apertura(Integer.parseInt(txtCod_usuario.getText()),Timestamp.valueOf(currentTime),Double.valueOf(txtSaldo.getText()));
+        
+        if(apertura.insertar(apertura)){
+            JOptionPane.showMessageDialog(null, "Se abrió la caja con exito");
+            this.dispose();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "Error al abrir la caja");
+        }
     }//GEN-LAST:event_btnAbrirActionPerformed
 
 
@@ -221,6 +247,7 @@ public class FrmAperturaCaja extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private rojeru_san.RSPanelShadow rSPanelShadow1;
+    public javax.swing.JTextField txtCod_usuario;
     public javax.swing.JLabel txtEmpleado;
     private javax.swing.JTextField txtSaldo;
     private javax.swing.JLabel txtTurno;

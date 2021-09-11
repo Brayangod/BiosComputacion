@@ -226,6 +226,8 @@ public class FrmLogin extends javax.swing.JFrame {
                             form.setVisible(true);
                             form.lbNombre.setText(login.nombre);
                             form.lbTipo.setText(login.tipo);
+                            form.txtCod_usuario.setText(String.valueOf(login.cod_usuario));
+                            
                             FrmLogin.this.dispose();
                             break;
                         case 2:

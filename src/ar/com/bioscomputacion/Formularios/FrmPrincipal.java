@@ -32,6 +32,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 g.fillRect(0, 0, c.getWidth(), c.getHeight());
             }
         });
+        txtCod_usuario.setVisible(false);
     }
 
     /**
@@ -51,6 +52,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lbTipo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        txtCod_usuario = new javax.swing.JTextField();
         menuPrincipal = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -60,6 +62,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
 
@@ -99,6 +102,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         deskPrincipal.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(lbTipo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        deskPrincipal.setLayer(txtCod_usuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout deskPrincipalLayout = new javax.swing.GroupLayout(deskPrincipal);
         deskPrincipal.setLayout(deskPrincipalLayout);
@@ -115,6 +119,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbTipo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCod_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -135,7 +141,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addComponent(lbNombre)
                         .addComponent(jLabel4)
                         .addComponent(lbTipo)
-                        .addComponent(jLabel5))
+                        .addComponent(jLabel5)
+                        .addComponent(txtCod_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(deskPrincipalLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(101, 101, 101)
@@ -210,6 +217,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu6.add(jMenuItem2);
+
+        jMenuItem3.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem3.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem3.setText("Cierre caja");
+        jMenuItem3.setOpaque(true);
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jMenuItem3);
 
         menuPrincipal.add(jMenu6);
 
@@ -294,7 +312,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.setClosable(true);
         form.setIconifiable(false);
         form.txtEmpleado.setText(this.lbNombre.getText());
+        form.txtCod_usuario.setText(this.txtCod_usuario.getText());
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -347,9 +370,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     public javax.swing.JLabel lbNombre;
     public javax.swing.JLabel lbTipo;
     private javax.swing.JMenuBar menuPrincipal;
     private rojeru_san.RSLabelHora rSLabelHora1;
+    public javax.swing.JTextField txtCod_usuario;
     // End of variables declaration//GEN-END:variables
 }

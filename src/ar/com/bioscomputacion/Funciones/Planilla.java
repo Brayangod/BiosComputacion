@@ -230,7 +230,7 @@ public class Planilla {
     public Double calcularSaldo(Date fecha){
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT ingresos,egresos FROM planilla WHERE fecha_movimiento between '"+fecha+" 00:00:00' and '"+fecha+" 23:59:59'");
+            ResultSet rs = st.executeQuery("SELECT ingresos,egresos FROM planilla WHERE fecha_movimiento between '"+fecha+" 00:00:00' and '"+fecha+" 23:59:59' AND tipo_moneda='EFECTIVO'");
             
             Double ingresos = 0.00;
             Double egresos = 0.00;

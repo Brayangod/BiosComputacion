@@ -17,6 +17,8 @@ public class Iniciar {
     public Integer cod_persona;
     public String nombre;
     public String tipo;
+    public Integer cod_usuario;
+    
     
     public int verificarUsuario(String usuario, String contraseña){
 //        0 = No se pudo conecta a la base de datos
@@ -31,6 +33,7 @@ public class Iniciar {
             
             while(rs.next()){
                 cod_persona = rs.getInt("u.cod_persona");
+                cod_usuario = rs.getInt("u.cod_usuario");
                 nombre = rs.getString("p.nombre");
                 tipo = rs.getString("u.tipo");
                 return 1;
