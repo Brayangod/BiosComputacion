@@ -224,8 +224,11 @@ public class FrmAperturaCaja extends javax.swing.JInternalFrame {
         String currentTime = sdf.format(dt);
         
         Apertura apertura = new Apertura(Integer.parseInt(txtCod_usuario.getText()),Timestamp.valueOf(currentTime),Double.valueOf(txtSaldo.getText()));
-        
-        if(apertura.insertar(apertura)){
+        if(apertura.isCajaAbierta()){
+            JOptionPane.showMessageDialog(null, "La caja ya esta abierta!");
+            return;
+        }
+        if(apertura.abrirCaja(apertura)){
             JOptionPane.showMessageDialog(null, "Se abrió la caja con exito");
             this.dispose();
         }
