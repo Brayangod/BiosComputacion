@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-09-2021 a las 20:53:48
+-- Tiempo de generación: 13-09-2021 a las 01:53:16
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -31,9 +31,43 @@ USE `bioscomputacion2021`;
 
 CREATE TABLE `apertura` (
   `cod_apertura` int(11) NOT NULL,
+  `cod_usuario` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
-  `cod_persona` int(11) NOT NULL,
-  `saldo` decimal(20,2) NOT NULL
+  `saldo_apertura` decimal(20,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `caja`
+--
+
+CREATE TABLE `caja` (
+  `cod_caja` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `estado` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `caja`
+--
+
+INSERT INTO `caja` (`cod_caja`, `nombre`, `estado`) VALUES
+(1, 'CAJA 1', 'ABIERTA');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `cierre`
+--
+
+CREATE TABLE `cierre` (
+  `cod_cierre` int(11) NOT NULL,
+  `cod_apertura` int(11) NOT NULL,
+  `cod_usuario` int(11) NOT NULL,
+  `saldo_cierre` decimal(20,2) NOT NULL,
+  `fecha_cierre` datetime NOT NULL,
+  `diferencia_cierre` decimal(20,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -92,7 +126,21 @@ CREATE TABLE `usuario` (
 --
 ALTER TABLE `apertura`
   ADD PRIMARY KEY (`cod_apertura`),
-  ADD KEY `persona` (`cod_persona`);
+  ADD KEY `usuarioApertura` (`cod_usuario`);
+
+--
+-- Indices de la tabla `caja`
+--
+ALTER TABLE `caja`
+  ADD PRIMARY KEY (`cod_caja`);
+
+--
+-- Indices de la tabla `cierre`
+--
+ALTER TABLE `cierre`
+  ADD PRIMARY KEY (`cod_cierre`),
+  ADD KEY `usuarioCierre` (`cod_usuario`),
+  ADD KEY `apertura` (`cod_apertura`);
 
 --
 -- Indices de la tabla `persona`
@@ -125,6 +173,18 @@ ALTER TABLE `apertura`
   MODIFY `cod_apertura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `caja`
+--
+ALTER TABLE `caja`
+  MODIFY `cod_caja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `cierre`
+--
+ALTER TABLE `cierre`
+  MODIFY `cod_cierre` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
@@ -150,7 +210,14 @@ ALTER TABLE `usuario`
 -- Filtros para la tabla `apertura`
 --
 ALTER TABLE `apertura`
-  ADD CONSTRAINT `persona` FOREIGN KEY (`cod_persona`) REFERENCES `persona` (`cod_persona`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `usuarioApertura` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `cierre`
+--
+ALTER TABLE `cierre`
+  ADD CONSTRAINT `apertura` FOREIGN KEY (`cod_apertura`) REFERENCES `apertura` (`cod_apertura`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuarioCierre` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`
