@@ -28,20 +28,19 @@ public class FrmAperturaCaja extends javax.swing.JInternalFrame {
         Calendar calendario = new GregorianCalendar();
         dateApertura.setCalendar(calendario);
         dateApertura.setEnabled(false);
-        
+
         Date ahora = new Date();
         SimpleDateFormat formateador = new SimpleDateFormat("HH");
         int horaActual = Integer.valueOf(formateador.format(ahora));
-        
+
         System.out.println(horaActual);
-        
-        if(horaActual >= 8 && horaActual <= 13){
+
+        if (horaActual >= 8 && horaActual <= 13) {
             txtTurno.setText("Mañana");
-        }
-        else if(horaActual >= 14 && horaActual <= 22){
+        } else if (horaActual >= 14 && horaActual <= 22) {
             txtTurno.setText("Tarde");
         }
-        
+
     }
 
     /**
@@ -222,17 +221,21 @@ public class FrmAperturaCaja extends javax.swing.JInternalFrame {
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentTime = sdf.format(dt);
-        
-        Apertura apertura = new Apertura(Integer.parseInt(txtCod_usuario.getText()),Timestamp.valueOf(currentTime),Double.valueOf(txtSaldo.getText()));
-        if(apertura.isCajaAbierta()){
+
+        Apertura apertura = new Apertura(Integer.parseInt(txtCod_usuario.getText()), Timestamp.valueOf(currentTime), Double.valueOf(txtSaldo.getText()));
+        if (apertura.isCajaAbierta()) {
             JOptionPane.showMessageDialog(null, "La caja ya esta abierta!");
             return;
         }
-        if(apertura.abrirCaja(apertura)){
+        if (apertura.abrirCaja(apertura)) {
             JOptionPane.showMessageDialog(null, "Se abrió la caja con exito");
+            FrmPrincipal.menuVentas.setEnabled(true);
+            FrmPrincipal.menuPlanilla.setEnabled(true);
+            FrmPrincipal.menuReparaciones.setEnabled(true);
+            FrmPrincipal.menuCtaCte.setEnabled(true);
+            
             this.dispose();
-        }
-        else{
+        } else {
             JOptionPane.showMessageDialog(null, "Error al abrir la caja");
         }
     }//GEN-LAST:event_btnAbrirActionPerformed

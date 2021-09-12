@@ -5,6 +5,7 @@
  */
 package ar.com.bioscomputacion.Formularios;
 
+import ar.com.bioscomputacion.Funciones.Apertura;
 import ar.com.bioscomputacion.Funciones.ConexionBD;
 import ar.com.bioscomputacion.Funciones.Iniciar;
 import ar.com.bioscomputacion.Funciones.TextPrompt;
@@ -227,7 +228,12 @@ public class FrmLogin extends javax.swing.JFrame {
                             form.lbNombre.setText(login.nombre);
                             form.lbTipo.setText(login.tipo);
                             form.txtCod_usuario.setText(String.valueOf(login.cod_usuario));
-                            
+                            if(!new Apertura().isCajaAbierta()){
+                                FrmPrincipal.menuVentas.setEnabled(false);
+                                FrmPrincipal.menuPlanilla.setEnabled(false);
+                                FrmPrincipal.menuReparaciones.setEnabled(false);
+                                FrmPrincipal.menuCtaCte.setEnabled(false);
+                            }                          
                             FrmLogin.this.dispose();
                             break;
                         case 2:
