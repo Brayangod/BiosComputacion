@@ -233,6 +233,8 @@ public class FrmAperturaCaja extends javax.swing.JInternalFrame {
             FrmPrincipal.menuPlanilla.setEnabled(true);
             FrmPrincipal.menuReparaciones.setEnabled(true);
             FrmPrincipal.menuCtaCte.setEnabled(true);
+            FrmPrincipal.menuItemApertura.setEnabled(false);
+            FrmPrincipal.menuItemCierre.setEnabled(true);
             
             this.dispose();
         } else {

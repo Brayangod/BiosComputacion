@@ -61,8 +61,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuPersona = new javax.swing.JMenu();
         menuCtaCte = new javax.swing.JMenu();
         menuCaja = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menuItemApertura = new javax.swing.JMenuItem();
+        menuItemCierre = new javax.swing.JMenuItem();
         menuProducto = new javax.swing.JMenu();
         menuSalir = new javax.swing.JMenu();
 
@@ -207,27 +207,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuCaja.setText("CAJA");
         menuCaja.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
 
-        jMenuItem2.setBackground(new java.awt.Color(51, 84, 111));
-        jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
-        jMenuItem2.setText("Apertura caja");
-        jMenuItem2.setOpaque(true);
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menuItemApertura.setBackground(new java.awt.Color(51, 84, 111));
+        menuItemApertura.setForeground(new java.awt.Color(255, 255, 255));
+        menuItemApertura.setText("Apertura caja");
+        menuItemApertura.setOpaque(true);
+        menuItemApertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menuItemAperturaActionPerformed(evt);
             }
         });
-        menuCaja.add(jMenuItem2);
+        menuCaja.add(menuItemApertura);
 
-        jMenuItem3.setBackground(new java.awt.Color(51, 84, 111));
-        jMenuItem3.setForeground(new java.awt.Color(255, 255, 255));
-        jMenuItem3.setText("Cierre caja");
-        jMenuItem3.setOpaque(true);
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menuItemCierre.setBackground(new java.awt.Color(51, 84, 111));
+        menuItemCierre.setForeground(new java.awt.Color(255, 255, 255));
+        menuItemCierre.setText("Cierre caja");
+        menuItemCierre.setOpaque(true);
+        menuItemCierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menuItemCierreActionPerformed(evt);
             }
         });
-        menuCaja.add(jMenuItem3);
+        menuCaja.add(menuItemCierre);
 
         menuPrincipal.add(menuCaja);
 
@@ -299,7 +299,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.txtNombrepersona.setText(this.lbNombre.getText());
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menuItemAperturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAperturaActionPerformed
         FrmAperturaCaja form = new FrmAperturaCaja();
 
         deskPrincipal.add(form);
@@ -313,9 +313,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.setIconifiable(false);
         form.txtEmpleado.setText(this.lbNombre.getText());
         form.txtCod_usuario.setText(this.txtCod_usuario.getText());
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menuItemAperturaActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menuItemCierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCierreActionPerformed
         FrmCierreCaja form = new FrmCierreCaja();
 
         deskPrincipal.add(form);
@@ -329,7 +329,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.setIconifiable(false);
         form.txtEmpleado.setText(this.lbNombre.getText());
         form.txtCod_usuario.setText(this.txtCod_usuario.getText());
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_menuItemCierreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -373,12 +373,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     public javax.swing.JLabel lbNombre;
     public javax.swing.JLabel lbTipo;
     public static javax.swing.JMenu menuCaja;
     public static javax.swing.JMenu menuCtaCte;
+    public static javax.swing.JMenuItem menuItemApertura;
+    public static javax.swing.JMenuItem menuItemCierre;
     public static javax.swing.JMenu menuPersona;
     public static javax.swing.JMenu menuPlanilla;
     private javax.swing.JMenuBar menuPrincipal;

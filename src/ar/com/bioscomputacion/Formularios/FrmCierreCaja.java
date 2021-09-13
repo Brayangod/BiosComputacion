@@ -257,6 +257,8 @@ public class FrmCierreCaja extends javax.swing.JInternalFrame {
             FrmPrincipal.menuPlanilla.setEnabled(false);
             FrmPrincipal.menuReparaciones.setEnabled(false);
             FrmPrincipal.menuCtaCte.setEnabled(false);
+            FrmPrincipal.menuItemApertura.setEnabled(true);
+            FrmPrincipal.menuItemCierre.setEnabled(false);
             this.dispose();
         } else {
             JOptionPane.showMessageDialog(null, "Error al cerrar la caja");

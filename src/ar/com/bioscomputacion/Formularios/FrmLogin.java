@@ -233,6 +233,7 @@ public class FrmLogin extends javax.swing.JFrame {
                                 FrmPrincipal.menuPlanilla.setEnabled(false);
                                 FrmPrincipal.menuReparaciones.setEnabled(false);
                                 FrmPrincipal.menuCtaCte.setEnabled(false);
+                                FrmPrincipal.menuItemCierre.setEnabled(false);
                             }                          
                             FrmLogin.this.dispose();
                             break;
