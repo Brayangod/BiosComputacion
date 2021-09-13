@@ -172,7 +172,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
         jMenuItem1.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jMenuItem1.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/planilla_diaria.png"))); // NOI18N
         jMenuItem1.setText("Planilla diaria");
         jMenuItem1.setOpaque(true);
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -208,7 +210,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuCaja.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
 
         menuItemApertura.setBackground(new java.awt.Color(51, 84, 111));
+        menuItemApertura.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         menuItemApertura.setForeground(new java.awt.Color(255, 255, 255));
+        menuItemApertura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/apertura.png"))); // NOI18N
         menuItemApertura.setText("Apertura caja");
         menuItemApertura.setOpaque(true);
         menuItemApertura.addActionListener(new java.awt.event.ActionListener() {
@@ -219,7 +223,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuCaja.add(menuItemApertura);
 
         menuItemCierre.setBackground(new java.awt.Color(51, 84, 111));
+        menuItemCierre.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         menuItemCierre.setForeground(new java.awt.Color(255, 255, 255));
+        menuItemCierre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/cierre.png"))); // NOI18N
         menuItemCierre.setText("Cierre caja");
         menuItemCierre.setOpaque(true);
         menuItemCierre.addActionListener(new java.awt.event.ActionListener() {

@@ -234,7 +234,16 @@ public class FrmLogin extends javax.swing.JFrame {
                                 FrmPrincipal.menuReparaciones.setEnabled(false);
                                 FrmPrincipal.menuCtaCte.setEnabled(false);
                                 FrmPrincipal.menuItemCierre.setEnabled(false);
-                            }                          
+                                FrmPrincipal.menuItemApertura.setEnabled(true);
+                            }
+                            else{
+                                FrmPrincipal.menuVentas.setEnabled(true);
+                                FrmPrincipal.menuPlanilla.setEnabled(true);
+                                FrmPrincipal.menuReparaciones.setEnabled(true);
+                                FrmPrincipal.menuCtaCte.setEnabled(true);
+                                FrmPrincipal.menuItemCierre.setEnabled(true);
+                                FrmPrincipal.menuItemApertura.setEnabled(false);
+                            }
                             FrmLogin.this.dispose();
                             break;
                         case 2:
