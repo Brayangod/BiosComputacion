@@ -53,7 +53,7 @@ CREATE TABLE `caja` (
 --
 
 INSERT INTO `caja` (`cod_caja`, `nombre`, `estado`) VALUES
-(1, 'CAJA 1', 'ABIERTA');
+(1, 'CAJA 1', 'CERRADA');
 
 -- --------------------------------------------------------
 
