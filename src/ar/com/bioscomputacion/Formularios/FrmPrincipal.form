@@ -69,11 +69,35 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/ar/com/bioscomputacion/MenuItemIcon/planilla_diaria.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Planilla diaria"/>
+                <Property name="text" type="java.lang.String" value="PLANILLA DIARIA"/>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+              <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="F2"/>
+                </Property>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="6f" green="54" red="33" type="rgb"/>
+                </Property>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Arial" size="10" style="1"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/ar/com/bioscomputacion/MenuItemIcon/planilla_mensual.png"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="PLANILLA MENSUAL"/>
+                <Property name="opaque" type="boolean" value="true"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -148,6 +172,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemApertura">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+A"/>
+                </Property>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="6f" green="54" red="33" type="rgb"/>
                 </Property>
@@ -160,7 +187,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/ar/com/bioscomputacion/MenuItemIcon/apertura.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Apertura caja"/>
+                <Property name="text" type="java.lang.String" value="APERTURA CAJA"/>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>
@@ -172,6 +199,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="menuItemCierre">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+C"/>
+                </Property>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="6f" green="54" red="33" type="rgb"/>
                 </Property>
@@ -184,7 +214,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/ar/com/bioscomputacion/MenuItemIcon/cierre.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Cierre caja"/>
+                <Property name="text" type="java.lang.String" value="CIERRE CAJA"/>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
               <Events>

@@ -57,6 +57,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuVentas = new javax.swing.JMenu();
         menuPlanilla = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         menuReparaciones = new javax.swing.JMenu();
         menuPersona = new javax.swing.JMenu();
         menuCtaCte = new javax.swing.JMenu();
@@ -175,7 +176,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jMenuItem1.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/planilla_diaria.png"))); // NOI18N
-        jMenuItem1.setText("Planilla diaria");
+        jMenuItem1.setText("PLANILLA DIARIA");
         jMenuItem1.setOpaque(true);
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,6 +184,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
         menuPlanilla.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        jMenuItem2.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem2.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/planilla_mensual.png"))); // NOI18N
+        jMenuItem2.setText("PLANILLA MENSUAL");
+        jMenuItem2.setOpaque(true);
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        menuPlanilla.add(jMenuItem2);
 
         menuPrincipal.add(menuPlanilla);
 
@@ -209,11 +224,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuCaja.setText("CAJA");
         menuCaja.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
 
+        menuItemApertura.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuItemApertura.setBackground(new java.awt.Color(51, 84, 111));
         menuItemApertura.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         menuItemApertura.setForeground(new java.awt.Color(255, 255, 255));
         menuItemApertura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/apertura.png"))); // NOI18N
-        menuItemApertura.setText("Apertura caja");
+        menuItemApertura.setText("APERTURA CAJA");
         menuItemApertura.setOpaque(true);
         menuItemApertura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,11 +238,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         menuCaja.add(menuItemApertura);
 
+        menuItemCierre.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         menuItemCierre.setBackground(new java.awt.Color(51, 84, 111));
         menuItemCierre.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         menuItemCierre.setForeground(new java.awt.Color(255, 255, 255));
         menuItemCierre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/cierre.png"))); // NOI18N
-        menuItemCierre.setText("Cierre caja");
+        menuItemCierre.setText("CIERRE CAJA");
         menuItemCierre.setOpaque(true);
         menuItemCierre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -337,6 +354,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.txtCod_usuario.setText(this.txtCod_usuario.getText());
     }//GEN-LAST:event_menuItemCierreActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -379,6 +400,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     public javax.swing.JLabel lbNombre;
     public javax.swing.JLabel lbTipo;
     public static javax.swing.JMenu menuCaja;
