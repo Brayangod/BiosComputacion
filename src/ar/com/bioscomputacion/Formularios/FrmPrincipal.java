@@ -60,7 +60,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuReparaciones = new javax.swing.JMenu();
         menuPersona = new javax.swing.JMenu();
         menuCtaCte = new javax.swing.JMenu();
-        menuHerramientas = new javax.swing.JMenu();
+        menuCaja = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         menuProducto = new javax.swing.JMenu();
@@ -202,10 +202,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuCtaCte.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
         menuPrincipal.add(menuCtaCte);
 
-        menuHerramientas.setForeground(new java.awt.Color(255, 255, 255));
-        menuHerramientas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/herramientas.png"))); // NOI18N
-        menuHerramientas.setText("HERRAMIENTAS");
-        menuHerramientas.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        menuCaja.setForeground(new java.awt.Color(255, 255, 255));
+        menuCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/caja.png"))); // NOI18N
+        menuCaja.setText("CAJA");
+        menuCaja.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
 
         jMenuItem2.setBackground(new java.awt.Color(51, 84, 111));
         jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
@@ -216,7 +216,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        menuHerramientas.add(jMenuItem2);
+        menuCaja.add(jMenuItem2);
 
         jMenuItem3.setBackground(new java.awt.Color(51, 84, 111));
         jMenuItem3.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,9 +227,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        menuHerramientas.add(jMenuItem3);
+        menuCaja.add(jMenuItem3);
 
-        menuPrincipal.add(menuHerramientas);
+        menuPrincipal.add(menuCaja);
 
         menuProducto.setForeground(new java.awt.Color(255, 255, 255));
         menuProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/producto.png"))); // NOI18N
@@ -377,8 +377,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     public javax.swing.JLabel lbNombre;
     public javax.swing.JLabel lbTipo;
+    public static javax.swing.JMenu menuCaja;
     public static javax.swing.JMenu menuCtaCte;
-    public static javax.swing.JMenu menuHerramientas;
     public static javax.swing.JMenu menuPersona;
     public static javax.swing.JMenu menuPlanilla;
     private javax.swing.JMenuBar menuPrincipal;
