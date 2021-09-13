@@ -301,12 +301,12 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
             if(planilla.insertar(planilla)){
                 JOptionPane.showMessageDialog(null, "Movimiento dado de alta satisfactoriamente");
                 this.dispose();
-                FrmPlanillaDeControl.btnActualizar.doClick();
+                FrmPlanillaDeControlDiaria.btnActualizar.doClick();
             }
             else{
                 JOptionPane.showMessageDialog(null, "Ocurrió un error al agrega movimiento");
                 this.dispose();
-                FrmPlanillaDeControl.btnActualizar.doClick();
+                FrmPlanillaDeControlDiaria.btnActualizar.doClick();
             }
         }
         else if(JcbMovimiento.getSelectedItem().equals("EGRESO")){
@@ -314,12 +314,12 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
             if(planilla.insertar(planilla)){
                 JOptionPane.showMessageDialog(null, "Movimiento dado de alta satisfactoriamente");
                 this.dispose();
-                FrmPlanillaDeControl.btnActualizar.doClick();
+                FrmPlanillaDeControlDiaria.btnActualizar.doClick();
             }
             else{
                 JOptionPane.showMessageDialog(null, "Ocurrió un error al agrega movimiento");
                 this.dispose();
-                FrmPlanillaDeControl.btnActualizar.doClick();
+                FrmPlanillaDeControlDiaria.btnActualizar.doClick();
             }
         }
         

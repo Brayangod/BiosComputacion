@@ -31,14 +31,14 @@ import javax.swing.table.DefaultTableCellRenderer;
  *
  * @author braya
  */
-public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
+public class FrmPlanillaDeControlDiaria extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmPlanillaDeControl2
      */
     int fila = -1;
 
-    public FrmPlanillaDeControl() {
+    public FrmPlanillaDeControlDiaria() {
         initComponents();
         txtNombrepersona.setVisible(false);
         mostrar();
@@ -57,7 +57,7 @@ public class FrmPlanillaDeControl extends javax.swing.JInternalFrame {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String currentTime = sdf.format(dt);
 
-        tablaPlanilla.setModel(funcion.mostrar(Date.valueOf(currentTime)));
+        tablaPlanilla.setModel(funcion.mostrarDiario(Date.valueOf(currentTime)));
 
         ColorCeldaPlanillaControlCentrado colorCentrado = new ColorCeldaPlanillaControlCentrado();
         ColorCeldaPlanillaControlDerecha colorDerecha = new ColorCeldaPlanillaControlDerecha();

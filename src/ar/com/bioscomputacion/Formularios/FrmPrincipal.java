@@ -189,8 +189,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem2.setBackground(new java.awt.Color(51, 84, 111));
         jMenuItem2.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/planilla_mensual.png"))); // NOI18N
-        jMenuItem2.setText("PLANILLA MENSUAL");
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/planilla_historica.png"))); // NOI18N
+        jMenuItem2.setText("PLANILLA HISTORICA");
         jMenuItem2.setOpaque(true);
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -308,7 +308,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuPlanillaMouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        FrmPlanillaDeControl form = new FrmPlanillaDeControl();
+        FrmPlanillaDeControlDiaria form = new FrmPlanillaDeControlDiaria();
 
         deskPrincipal.add(form);
         Dimension desktopSize = deskPrincipal.getSize();
@@ -355,7 +355,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_menuItemCierreActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+        FrmPlanillaDeControlHistorica form = new FrmPlanillaDeControlHistorica();
+
+        deskPrincipal.add(form);
+        Dimension desktopSize = deskPrincipal.getSize();
+        Dimension FrameSize = form.getSize();
+
+        form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        form.setVisible(true);
+
+        form.setClosable(true);
+        form.setIconifiable(false);
+        form.txtNombrepersona.setText(this.lbNombre.getText());
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**

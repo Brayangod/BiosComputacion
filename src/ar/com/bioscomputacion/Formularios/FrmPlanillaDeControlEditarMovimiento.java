@@ -308,12 +308,12 @@ public class FrmPlanillaDeControlEditarMovimiento extends javax.swing.JInternalF
             if(planilla.editar(planilla)){
                 JOptionPane.showMessageDialog(null, "Movimiento editado satisfactoriamente");
                 this.dispose();
-                FrmPlanillaDeControl.btnActualizar.doClick();
+                FrmPlanillaDeControlDiaria.btnActualizar.doClick();
             }
             else{
                 JOptionPane.showMessageDialog(null, "Ocurrió un error al editar movimiento");
                 this.dispose();
-                FrmPlanillaDeControl.btnActualizar.doClick();
+                FrmPlanillaDeControlDiaria.btnActualizar.doClick();
             }
         }
         else if(JcbMovimiento.getSelectedItem().equals("EGRESO")){
@@ -322,12 +322,12 @@ public class FrmPlanillaDeControlEditarMovimiento extends javax.swing.JInternalF
             if(planilla.editar(planilla)){
                 JOptionPane.showMessageDialog(null, "Movimiento editado satisfactoriamente");
                 this.dispose();
-                FrmPlanillaDeControl.btnActualizar.doClick();
+                FrmPlanillaDeControlDiaria.btnActualizar.doClick();
             }
             else{
                 JOptionPane.showMessageDialog(null, "Ocurrió un error al editar movimiento");
                 this.dispose();
-                FrmPlanillaDeControl.btnActualizar.doClick();
+                FrmPlanillaDeControlDiaria.btnActualizar.doClick();
             }
         }
 

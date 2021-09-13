@@ -112,7 +112,7 @@ public class Planilla {
     
     //METODOS PARA PLANILLA DE CONTROL
     
-    public DefaultTableModel mostrar(Date fecha){
+    public DefaultTableModel mostrarDiario(Date fecha){
         DefaultTableModel modelo;
         
         String[] titulos = {"CODIGO","VENDEDOR","HORA","RUBRO","OBSERVACION","TIPO","INGRESOS","EGRESOS"};
@@ -139,6 +139,50 @@ public class Planilla {
                 registros[0] = rs.getString("cod_movimiento");
                 registros[1] = rs.getString("nom_vendedor");
                 registros[2] = rs.getString("DATE_FORMAT(fecha_movimiento,'%H:%i:%s')");
+                registros[3] = rs.getString("rubro");
+                registros[4] = rs.getString("observacion");
+                registros[5] = rs.getString("tipo_moneda");
+                registros[6] = rs.getString("ingresos");
+                registros[7] = rs.getString("egresos");
+                
+                modelo.addRow(registros);
+            }
+            return modelo;
+            
+        } catch (Exception e) {
+            System.out.println("e = " + e);
+            return null;
+        }
+        
+    }
+    
+    public DefaultTableModel mostrarHistorico(Date inicio, Date fin){
+        DefaultTableModel modelo;
+        
+        String[] titulos = {"CODIGO","VENDEDOR","FECHA","RUBRO","OBSERVACION","TIPO","INGRESOS","EGRESOS"};
+        String[] registros = new String[8];
+        
+        modelo = new DefaultTableModel(null,titulos){
+            @Override
+            public boolean isCellEditable(int filas, int culumnas) {
+                if (culumnas == 8) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            }
+
+        };
+        
+        try {
+            Statement st = cn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT cod_movimiento,nom_vendedor,fecha_movimiento,rubro,observacion,tipo_moneda,ingresos,egresos FROM planilla WHERE fecha_movimiento between '"+inicio+" 00:00:00' and '"+fin+" 23:59:59'");
+            
+            while(rs.next()){                
+                registros[0] = rs.getString("cod_movimiento");
+                registros[1] = rs.getString("nom_vendedor");
+                registros[2] = rs.getString("fecha_movimiento");
                 registros[3] = rs.getString("rubro");
                 registros[4] = rs.getString("observacion");
                 registros[5] = rs.getString("tipo_moneda");
