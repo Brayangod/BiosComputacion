@@ -55,16 +55,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
         txtCod_usuario = new javax.swing.JTextField();
         menuPrincipal = new javax.swing.JMenuBar();
         menuVentas = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         menuPlanilla = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         menuReparaciones = new javax.swing.JMenu();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         menuPersona = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         menuCtaCte = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
         menuCaja = new javax.swing.JMenu();
         menuItemApertura = new javax.swing.JMenuItem();
         menuItemCierre = new javax.swing.JMenuItem();
         menuProducto = new javax.swing.JMenu();
+        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         menuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -158,6 +169,35 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/venta.png"))); // NOI18N
         menuVentas.setText("VENTA");
         menuVentas.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItem3.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem3.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem3.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/nueva_venta.png"))); // NOI18N
+        jMenuItem3.setText("NUEVA VENTA");
+        jMenuItem3.setOpaque(true);
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        menuVentas.add(jMenuItem3);
+
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        jMenuItem4.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem4.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem4.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/historial_venta.png"))); // NOI18N
+        jMenuItem4.setText("HISTORIAL DE VENTAS");
+        jMenuItem4.setOpaque(true);
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        menuVentas.add(jMenuItem4);
+
         menuPrincipal.add(menuVentas);
 
         menuPlanilla.setBackground(new java.awt.Color(51, 84, 111));
@@ -171,7 +211,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
         jMenuItem1.setBackground(new java.awt.Color(51, 84, 111));
         jMenuItem1.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jMenuItem1.setForeground(new java.awt.Color(255, 255, 255));
@@ -185,7 +225,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         menuPlanilla.add(jMenuItem1);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
         jMenuItem2.setBackground(new java.awt.Color(51, 84, 111));
         jMenuItem2.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jMenuItem2.setForeground(new java.awt.Color(255, 255, 255));
@@ -205,18 +245,105 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuReparaciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/reparaciones.png"))); // NOI18N
         menuReparaciones.setText("REPARACIONES");
         menuReparaciones.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        jMenuItem5.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem5.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem5.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/nueva_reparación.png"))); // NOI18N
+        jMenuItem5.setText("NUEVA REPARACIÓN");
+        jMenuItem5.setOpaque(true);
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        menuReparaciones.add(jMenuItem5);
+
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
+        jMenuItem6.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem6.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem6.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/consulta_reparacion.png"))); // NOI18N
+        jMenuItem6.setText("CONSULTA REPARACIÓN");
+        jMenuItem6.setOpaque(true);
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        menuReparaciones.add(jMenuItem6);
+
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, 0));
+        jMenuItem7.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem7.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem7.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/retiro_reparación.png"))); // NOI18N
+        jMenuItem7.setText("RETIRO DE REPARACIÓN");
+        jMenuItem7.setOpaque(true);
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        menuReparaciones.add(jMenuItem7);
+
         menuPrincipal.add(menuReparaciones);
 
         menuPersona.setForeground(new java.awt.Color(255, 255, 255));
         menuPersona.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/persona.png"))); // NOI18N
         menuPersona.setText("PERSONA");
         menuPersona.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+
+        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItem8.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem8.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem8.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/gestion_clientes.png"))); // NOI18N
+        jMenuItem8.setText("GESTIÓN DE CLIENTES");
+        jMenuItem8.setOpaque(true);
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        menuPersona.add(jMenuItem8);
+
+        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
+        jMenuItem9.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem9.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem9.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/gestion_usuarios.png"))); // NOI18N
+        jMenuItem9.setText("GESTIÓN DE USUARIOS");
+        jMenuItem9.setOpaque(true);
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        menuPersona.add(jMenuItem9);
+
         menuPrincipal.add(menuPersona);
 
         menuCtaCte.setForeground(new java.awt.Color(255, 255, 255));
         menuCtaCte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/cuenta_corriente.png"))); // NOI18N
         menuCtaCte.setText("CTA. CTE");
         menuCtaCte.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+
+        jMenuItem10.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, 0));
+        jMenuItem10.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem10.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem10.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/gestion_cta_cte.png"))); // NOI18N
+        jMenuItem10.setText("GESTIÓN DE CTA. CTE");
+        jMenuItem10.setOpaque(true);
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        menuCtaCte.add(jMenuItem10);
+
         menuPrincipal.add(menuCtaCte);
 
         menuCaja.setForeground(new java.awt.Color(255, 255, 255));
@@ -258,6 +385,49 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuIcons/producto.png"))); // NOI18N
         menuProducto.setText("PRODUCTOS");
         menuProducto.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+
+        jMenuItem11.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F9, 0));
+        jMenuItem11.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem11.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem11.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/nuevo_producto.png"))); // NOI18N
+        jMenuItem11.setText("NUEVO PRODUCTO");
+        jMenuItem11.setOpaque(true);
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        menuProducto.add(jMenuItem11);
+
+        jMenuItem12.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, 0));
+        jMenuItem12.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem12.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem12.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/gestion_stock.png"))); // NOI18N
+        jMenuItem12.setText("GESTIÓN DE STOCK");
+        jMenuItem12.setOpaque(true);
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        menuProducto.add(jMenuItem12);
+
+        jMenuItem13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F11, 0));
+        jMenuItem13.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem13.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem13.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/MenuItemIcon/gestion_categorias.png"))); // NOI18N
+        jMenuItem13.setText("GESTIÓN DE CATEGORIAS");
+        jMenuItem13.setOpaque(true);
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        menuProducto.add(jMenuItem13);
+
         menuPrincipal.add(menuProducto);
 
         menuSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -369,6 +539,50 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.txtNombrepersona.setText(this.lbNombre.getText());
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -411,7 +625,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     public javax.swing.JLabel lbNombre;
     public javax.swing.JLabel lbTipo;
     public static javax.swing.JMenu menuCaja;
