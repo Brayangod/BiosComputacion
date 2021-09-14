@@ -540,7 +540,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        FrmVentaDetalle form = new FrmVentaDetalle();
+
+        deskPrincipal.add(form);
+        Dimension desktopSize = deskPrincipal.getSize();
+        Dimension FrameSize = form.getSize();
+
+        form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        form.setVisible(true);
+
+        form.setClosable(true);
+        form.setIconifiable(false);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
