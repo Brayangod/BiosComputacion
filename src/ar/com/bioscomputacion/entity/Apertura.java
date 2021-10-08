@@ -21,34 +21,34 @@ public class Apertura {
     ConexionBD mysql = new ConexionBD();
     Connection cn = mysql.getConexionBD();
 
-    private int cod_apertura;
-    private int cod_usuario;
+    private int id_apertura;
+    private int id_usuario;
     private Timestamp fecha;
     private Double saldo;
 
     public Apertura() {
     }
 
-    public Apertura(int cod_usuario, Timestamp fecha, Double saldo) {
-        this.cod_usuario = cod_usuario;
+    public Apertura(int id_usuario, Timestamp fecha, Double saldo) {
+        this.id_usuario = id_usuario;
         this.fecha = fecha;
         this.saldo = saldo;
     }
 
-    public int getCod_apertura() {
-        return cod_apertura;
+    public int getId_apertura() {
+        return id_apertura;
     }
 
-    public void setCod_apertura(int cod_apertura) {
-        this.cod_apertura = cod_apertura;
+    public void setId_apertura(int id_apertura) {
+        this.id_apertura = id_apertura;
     }
 
-    public int getCod_usuario() {
-        return cod_usuario;
+    public int getId_usuario() {
+        return id_usuario;
     }
 
-    public void setCod_usuario(int cod_usuario) {
-        this.cod_usuario = cod_usuario;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public Timestamp getFecha() {

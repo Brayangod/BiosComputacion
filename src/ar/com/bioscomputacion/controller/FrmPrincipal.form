@@ -593,7 +593,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="lbTipo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtCod_usuario" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtId_usuario" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -620,7 +620,7 @@
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lbTipo" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtCod_usuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtId_usuario" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <Component id="jLabel1" min="-2" pref="287" max="-2" attributes="0"/>
@@ -712,7 +712,7 @@
             <Property name="text" type="java.lang.String" value="Hora:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtCod_usuario">
+        <Component class="javax.swing.JTextField" name="txtId_usuario">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>

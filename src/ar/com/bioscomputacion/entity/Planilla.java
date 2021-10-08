@@ -21,7 +21,7 @@ import javax.swing.table.DefaultTableModel;
 public class Planilla {
     ConexionBD mysql = new ConexionBD();
     Connection cn = mysql.getConexionBD();
-    private int cod_movimiento;
+    private int id_movimiento;
     private String nom_vendedor;
     private Timestamp fecha;
     private String rubro;
@@ -43,11 +43,11 @@ public class Planilla {
         this.egresos = egresos;
     }
 
-    public int getCod_movimiento() {
-        return cod_movimiento;
+    public int getId_movimiento() {
+        return id_movimiento;
     }
-    public void setCod_movimiento(int cod_movimiento){
-        this.cod_movimiento = cod_movimiento;
+    public void setId_movimiento(int id_movimiento){
+        this.id_movimiento = id_movimiento;
     }
 
     public String getNom_vendedor() {

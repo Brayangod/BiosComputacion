@@ -45,10 +45,10 @@ public class PlanillaDAO {
         
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT cod_movimiento,nom_vendedor,DATE_FORMAT(fecha_movimiento,'%H:%i:%s'),rubro,observacion,tipo_moneda,ingresos,egresos FROM planilla WHERE fecha_movimiento between '"+fecha+" 00:00:00' and '"+fecha+" 23:59:59'");
+            ResultSet rs = st.executeQuery("SELECT id_movimiento,nom_vendedor,DATE_FORMAT(fecha_movimiento,'%H:%i:%s'),rubro,observacion,tipo_moneda,ingresos,egresos FROM planilla WHERE fecha_movimiento between '"+fecha+" 00:00:00' and '"+fecha+" 23:59:59'");
             
             while(rs.next()){                
-                registros[0] = rs.getString("cod_movimiento");
+                registros[0] = rs.getString("id_movimiento");
                 registros[1] = rs.getString("nom_vendedor");
                 registros[2] = rs.getString("DATE_FORMAT(fecha_movimiento,'%H:%i:%s')");
                 registros[3] = rs.getString("rubro");
@@ -89,10 +89,10 @@ public class PlanillaDAO {
         
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT cod_movimiento,nom_vendedor,fecha_movimiento,rubro,observacion,tipo_moneda,ingresos,egresos FROM planilla WHERE fecha_movimiento between '"+inicio+" 00:00:00' and '"+fin+" 23:59:59'");
+            ResultSet rs = st.executeQuery("SELECT id_movimiento,nom_vendedor,fecha_movimiento,rubro,observacion,tipo_moneda,ingresos,egresos FROM planilla WHERE fecha_movimiento between '"+inicio+" 00:00:00' and '"+fin+" 23:59:59'");
             
             while(rs.next()){                
-                registros[0] = rs.getString("cod_movimiento");
+                registros[0] = rs.getString("id_movimiento");
                 registros[1] = rs.getString("nom_vendedor");
                 registros[2] = rs.getString("fecha_movimiento");
                 registros[3] = rs.getString("rubro");
@@ -144,7 +144,7 @@ public class PlanillaDAO {
     public boolean editar(Planilla datos){
         try {
             PreparedStatement pst = cn.prepareStatement("UPDATE planilla SET nom_vendedor = ?,rubro = ?,observacion = ?,tipo_moneda = ?,ingresos = ?,egresos = ?"
-                    + " WHERE cod_movimiento='"+datos.getCod_movimiento()+"'");
+                    + " WHERE id_movimiento='"+datos.getId_movimiento()+"'");
             
             pst.setString(1, datos.getNom_vendedor());
             pst.setString(2, datos.getRubro());
@@ -165,9 +165,9 @@ public class PlanillaDAO {
             return false;
         }
     }
-    public boolean eliminar(int cod_movimiento){
+    public boolean eliminar(int id_movimiento){
         try {
-            PreparedStatement pst = cn.prepareStatement("DELETE FROM planilla WHERE cod_movimiento='"+cod_movimiento+"'");
+            PreparedStatement pst = cn.prepareStatement("DELETE FROM planilla WHERE id_movimiento='"+id_movimiento+"'");
             
             int N = pst.executeUpdate();
             

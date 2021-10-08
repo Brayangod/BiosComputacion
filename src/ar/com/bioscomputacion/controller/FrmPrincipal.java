@@ -32,7 +32,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 g.fillRect(0, 0, c.getWidth(), c.getHeight());
             }
         });
-        txtCod_usuario.setVisible(false);
+        txtId_usuario.setVisible(false);
     }
 
     /**
@@ -52,7 +52,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lbTipo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtCod_usuario = new javax.swing.JTextField();
+        txtId_usuario = new javax.swing.JTextField();
         menuPrincipal = new javax.swing.JMenuBar();
         menuVentas = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -114,7 +114,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         deskPrincipal.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(lbTipo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        deskPrincipal.setLayer(txtCod_usuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        deskPrincipal.setLayer(txtId_usuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout deskPrincipalLayout = new javax.swing.GroupLayout(deskPrincipal);
         deskPrincipal.setLayout(deskPrincipalLayout);
@@ -132,7 +132,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbTipo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCod_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtId_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -154,7 +154,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addComponent(lbTipo)
                         .addComponent(jLabel5)
-                        .addComponent(txtCod_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtId_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(deskPrincipalLayout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(101, 101, 101)
@@ -505,7 +505,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.setClosable(true);
         form.setIconifiable(false);
         form.txtEmpleado.setText(this.lbNombre.getText());
-        form.txtCod_usuario.setText(this.txtCod_usuario.getText());
+        form.txtCod_usuario.setText(this.txtId_usuario.getText());
     }//GEN-LAST:event_menuItemAperturaActionPerformed
 
     private void menuItemCierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCierreActionPerformed
@@ -521,7 +521,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.setClosable(true);
         form.setIconifiable(false);
         form.txtEmpleado.setText(this.lbNombre.getText());
-        form.txtCod_usuario.setText(this.txtCod_usuario.getText());
+        form.txtCod_usuario.setText(this.txtId_usuario.getText());
     }//GEN-LAST:event_menuItemCierreActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -661,6 +661,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu menuSalir;
     public static javax.swing.JMenu menuVentas;
     private rojeru_san.RSLabelHora rSLabelHora1;
-    public javax.swing.JTextField txtCod_usuario;
+    public javax.swing.JTextField txtId_usuario;
     // End of variables declaration//GEN-END:variables
 }

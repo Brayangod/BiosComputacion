@@ -309,7 +309,7 @@ public class FrmPlanillaDeControlDiaria extends javax.swing.JInternalFrame {
         form.setIconifiable(false);
 
         form.txtNombrepersona.setText(this.txtNombrepersona.getText());
-        form.txtCod_movimiento.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 0).toString()));
+        form.txtId_movimiento.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 0).toString()));
         if (Double.valueOf(tablaPlanilla.getValueAt(fila, 6).toString()) > 0.00) {
             form.JcbMovimiento.setSelectedItem("INGRESO");
             form.txtMonto.setText(String.valueOf(tablaPlanilla.getValueAt(fila, 6)));

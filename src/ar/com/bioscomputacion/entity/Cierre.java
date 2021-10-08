@@ -20,9 +20,9 @@ public class Cierre {
     ConexionBD mysql = new ConexionBD();
     Connection cn = mysql.getConexionBD();
     
-    private int cod_cierre;
-    private int cod_apertura;
-    private int cod_usuario;
+    private int id_cierre;
+    private int id_apertura;
+    private int id_usuario;
     private Double saldo;
     private Timestamp fecha;
     private Double diferencia;
@@ -30,35 +30,35 @@ public class Cierre {
     public Cierre() {
     }
 
-    public Cierre(int cod_usuario, Double saldo, Timestamp fecha, Double diferencia) {
-        this.cod_usuario = cod_usuario;
+    public Cierre(int id_usuario, Double saldo, Timestamp fecha, Double diferencia) {
+        this.id_usuario = id_usuario;
         this.saldo = saldo;
         this.fecha = fecha;
         this.diferencia = diferencia;
     }
 
-    public int getCod_cierre() {
-        return cod_cierre;
+    public int getId_cierre() {
+        return id_cierre;
     }
 
-    public void setCod_cierre(int cod_cierre) {
-        this.cod_cierre = cod_cierre;
+    public void setId_cierre(int id_cierre) {
+        this.id_cierre = id_cierre;
     }
 
-    public int getCod_apertura() {
-        return cod_apertura;
+    public int getId_apertura() {
+        return id_apertura;
     }
 
-    public void setCod_apertura(int cod_apertura) {
-        this.cod_apertura = cod_apertura;
+    public void setId_apertura(int id_apertura) {
+        this.id_apertura = id_apertura;
     }
 
-    public int getCod_usuario() {
-        return cod_usuario;
+    public int getId_usuario() {
+        return id_usuario;
     }
 
-    public void setCod_usuario(int cod_usuario) {
-        this.cod_usuario = cod_usuario;
+    public void setId_usuario(int id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public Double getSaldo() {

@@ -23,15 +23,15 @@ public class CierreDAO {
     public boolean cerrarCaja(Cierre datos) {
 
         try {
-            PreparedStatement pst = cn.prepareStatement("INSERT INTO cierre (cod_apertura,cod_usuario,saldo_cierre,fecha_cierre,diferencia_cierre) VALUES ((SELECT cod_apertura FROM apertura ORDER BY cod_apertura DESC LIMIT 1),?,?,?,?)");
+            PreparedStatement pst = cn.prepareStatement("INSERT INTO cierre (id_apertura,id_usuario,saldo_cierre,fecha_cierre,diferencia_cierre) VALUES ((SELECT id_apertura FROM apertura ORDER BY id_apertura DESC LIMIT 1),?,?,?,?)");
             
             PreparedStatement pst2 = cn.prepareStatement("INSERT INTO planilla (nom_vendedor,fecha_movimiento,rubro,observacion,tipo_moneda,ingresos,egresos)"
-                    + " VALUES ((SELECT p.nombre FROM persona p INNER JOIN usuario u ON p.cod_persona = u.cod_persona AND u.cod_usuario ='"+datos.getCod_usuario()+"'),?,?,?,?,?,?)");
+                    + " VALUES ((SELECT p.nombre FROM persona p INNER JOIN usuario u ON p.id_persona = u.id_persona AND u.id_usuario ='"+datos.getId_usuario()+"'),?,?,?,?,?,?)");
 
             PreparedStatement pst3 = cn.prepareStatement("UPDATE caja SET estado='CERRADA'");
             
             
-            pst.setInt(1, datos.getCod_usuario());
+            pst.setInt(1, datos.getId_usuario());
             pst.setDouble(2, datos.getSaldo());
             pst.setTimestamp(3, datos.getFecha());
             pst.setDouble(4, datos.getDiferencia());

@@ -25,15 +25,15 @@ public class AperturaDAO {
     public boolean abrirCaja(Apertura datos) {
 
         try {
-            PreparedStatement pst = cn.prepareStatement("INSERT INTO apertura (cod_usuario,fecha,saldo_apertura) VALUES (?,?,?)");
+            PreparedStatement pst = cn.prepareStatement("INSERT INTO apertura (id_usuario,fecha,saldo_apertura) VALUES (?,?,?)");
             
             PreparedStatement pst2 = cn.prepareStatement("INSERT INTO planilla (nom_vendedor,fecha_movimiento,rubro,observacion,tipo_moneda,ingresos,egresos)"
-                    + " VALUES ((SELECT p.nombre FROM persona p INNER JOIN usuario u ON p.cod_persona = u.cod_persona AND u.cod_usuario ='"+datos.getCod_usuario()+"'),?,?,?,?,?,?)");
+                    + " VALUES ((SELECT p.nombre FROM persona p INNER JOIN usuario u ON p.id_persona = u.id_persona AND u.id_usuario ='"+datos.getId_usuario()+"'),?,?,?,?,?,?)");
 
             PreparedStatement pst3 = cn.prepareStatement("UPDATE caja SET estado='ABIERTA'");
             
             
-            pst.setInt(1, datos.getCod_usuario());
+            pst.setInt(1, datos.getId_usuario());
             pst.setTimestamp(2, datos.getFecha());
             pst.setDouble(3, datos.getSaldo());
 

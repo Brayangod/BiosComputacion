@@ -21,7 +21,7 @@ public class UsuarioDAO {
             Connection cn = mysql.getConexionBD();
             PreparedStatement pst = cn.prepareStatement("INSERT INTO persona (nombre,num_documento,direccion,telefono,email) "
                     + "VALUES (?,?,?,?,?)");
-            PreparedStatement pst2 = cn.prepareStatement("INSERT INTO usuario (cod_persona,login,password,tipo,estado) VALUES ((select cod_persona from persona order by cod_persona desc limit 1),"
+            PreparedStatement pst2 = cn.prepareStatement("INSERT INTO usuario (id_persona,login,password,tipo,estado) VALUES ((select id_persona from persona order by id_persona desc limit 1),"
                     + "?,?,?,?)");
             
             

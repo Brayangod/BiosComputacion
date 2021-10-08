@@ -25,7 +25,7 @@ public class FrmPlanillaDeControlEditarMovimiento extends javax.swing.JInternalF
     public FrmPlanillaDeControlEditarMovimiento() {
         initComponents();
         txtNombrepersona.setVisible(false);
-        txtCod_movimiento.setVisible(false);
+        txtId_movimiento.setVisible(false);
     }
 
     /**
@@ -54,7 +54,7 @@ public class FrmPlanillaDeControlEditarMovimiento extends javax.swing.JInternalF
         txtNombrepersona = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         rSButtonRiple1 = new rojeru_san.RSButtonRiple();
-        txtCod_movimiento = new javax.swing.JTextField();
+        txtId_movimiento = new javax.swing.JTextField();
 
         jPanel1.setBackground(new java.awt.Color(51, 84, 111));
 
@@ -181,7 +181,7 @@ public class FrmPlanillaDeControlEditarMovimiento extends javax.swing.JInternalF
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelShadow1Layout.createSequentialGroup()
                         .addComponent(rSButtonRiple1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtCod_movimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtId_movimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNombrepersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 754, Short.MAX_VALUE))
@@ -219,7 +219,7 @@ public class FrmPlanillaDeControlEditarMovimiento extends javax.swing.JInternalF
                 .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(txtNombrepersona, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtCod_movimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtId_movimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(rSButtonRiple1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -306,7 +306,7 @@ public class FrmPlanillaDeControlEditarMovimiento extends javax.swing.JInternalF
         PlanillaDAO planillaDao = new PlanillaDAO();
         if(JcbMovimiento.getSelectedItem().equals("INGRESO")){
             planilla = new Planilla(txtNombrepersona.getText(), Timestamp.valueOf(currentTime), jCbRubro.getSelectedItem().toString(), txtObservaciones.getText(), jCbTipoMoneda.getSelectedItem().toString(), Double.valueOf(txtMonto.getText()), 0.00);
-            planilla.setCod_movimiento(Integer.parseInt(txtCod_movimiento.getText()));
+            planilla.setId_movimiento(Integer.parseInt(txtId_movimiento.getText()));
             if(planillaDao.editar(planilla)){
                 JOptionPane.showMessageDialog(null, "Movimiento editado satisfactoriamente");
                 this.dispose();
@@ -320,7 +320,7 @@ public class FrmPlanillaDeControlEditarMovimiento extends javax.swing.JInternalF
         }
         else if(JcbMovimiento.getSelectedItem().equals("EGRESO")){
             planilla = new Planilla(txtNombrepersona.getText(), Timestamp.valueOf(currentTime), jCbRubro.getSelectedItem().toString(), txtObservaciones.getText(), jCbTipoMoneda.getSelectedItem().toString(), 0.00, Double.valueOf(txtMonto.getText()));
-            planilla.setCod_movimiento(Integer.parseInt(txtCod_movimiento.getText()));
+            planilla.setId_movimiento(Integer.parseInt(txtId_movimiento.getText()));
             if(planillaDao.editar(planilla)){
                 JOptionPane.showMessageDialog(null, "Movimiento editado satisfactoriamente");
                 this.dispose();
@@ -351,7 +351,7 @@ public class FrmPlanillaDeControlEditarMovimiento extends javax.swing.JInternalF
     private javax.swing.JSeparator jSeparator1;
     private rojeru_san.RSButtonRiple rSButtonRiple1;
     private rojeru_san.RSPanelShadow rSPanelShadow1;
-    public javax.swing.JTextField txtCod_movimiento;
+    public javax.swing.JTextField txtId_movimiento;
     public javax.swing.JTextField txtMonto;
     public javax.swing.JTextField txtNombrepersona;
     public javax.swing.JTextField txtObservaciones;

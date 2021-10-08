@@ -15,10 +15,10 @@ public class Iniciar {
     ConexionBD mysql = new ConexionBD();
     Connection cn = mysql.getConexionBD();
     
-    public Integer cod_persona;
+    public Integer id_persona;
     public String nombre;
     public String tipo;
-    public Integer cod_usuario;
+    public Integer id_usuario;
     
     
     public int verificarUsuario(String usuario, String contraseña){
@@ -33,8 +33,8 @@ public class Iniciar {
             ResultSet rs = st.executeQuery("SELECT * FROM usuario u INNER JOIN persona p WHERE u.login='"+usuario+"' AND u.password='"+contraseña+"'");
             
             while(rs.next()){
-                cod_persona = rs.getInt("u.cod_persona");
-                cod_usuario = rs.getInt("u.cod_usuario");
+                id_persona = rs.getInt("u.id_persona");
+                id_usuario = rs.getInt("u.id_usuario");
                 nombre = rs.getString("p.nombre");
                 tipo = rs.getString("u.tipo");
                 return 1;
