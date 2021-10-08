@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-09-2021 a las 21:31:43
+-- Tiempo de generación: 08-10-2021 a las 04:48:05
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -30,8 +30,8 @@ USE `bioscomputacion2021`;
 --
 
 CREATE TABLE `apertura` (
-  `cod_apertura` int(11) NOT NULL,
-  `cod_usuario` int(11) NOT NULL,
+  `id_apertura` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `fecha` datetime NOT NULL,
   `saldo_apertura` decimal(20,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -43,7 +43,7 @@ CREATE TABLE `apertura` (
 --
 
 CREATE TABLE `caja` (
-  `cod_caja` int(11) NOT NULL,
+  `id_caja` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `estado` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -52,7 +52,7 @@ CREATE TABLE `caja` (
 -- Volcado de datos para la tabla `caja`
 --
 
-INSERT INTO `caja` (`cod_caja`, `nombre`, `estado`) VALUES
+INSERT INTO `caja` (`id_caja`, `nombre`, `estado`) VALUES
 (1, 'CAJA 1', 'CERRADA');
 
 -- --------------------------------------------------------
@@ -62,9 +62,9 @@ INSERT INTO `caja` (`cod_caja`, `nombre`, `estado`) VALUES
 --
 
 CREATE TABLE `cierre` (
-  `cod_cierre` int(11) NOT NULL,
-  `cod_apertura` int(11) NOT NULL,
-  `cod_usuario` int(11) NOT NULL,
+  `id_cierre` int(11) NOT NULL,
+  `id_apertura` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `saldo_cierre` decimal(20,2) NOT NULL,
   `fecha_cierre` datetime NOT NULL,
   `diferencia_cierre` decimal(20,2) NOT NULL
@@ -77,9 +77,9 @@ CREATE TABLE `cierre` (
 --
 
 CREATE TABLE `persona` (
-  `cod_persona` int(11) NOT NULL,
+  `id_persona` int(11) NOT NULL,
   `nombre` varchar(60) NOT NULL,
-  `num_documento` varchar(20) NOT NULL,
+  `dni` varchar(20) NOT NULL,
   `direccion` varchar(100) DEFAULT NULL,
   `telefono` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL
@@ -92,7 +92,7 @@ CREATE TABLE `persona` (
 --
 
 CREATE TABLE `planilla` (
-  `cod_movimiento` int(11) NOT NULL,
+  `id_movimiento` int(11) NOT NULL,
   `nom_vendedor` varchar(60) NOT NULL,
   `fecha_movimiento` datetime NOT NULL,
   `rubro` varchar(100) NOT NULL,
@@ -109,8 +109,8 @@ CREATE TABLE `planilla` (
 --
 
 CREATE TABLE `usuario` (
-  `cod_usuario` int(11) NOT NULL,
-  `cod_persona` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
+  `id_persona` int(11) NOT NULL,
   `login` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `tipo` varchar(20) NOT NULL,
@@ -125,42 +125,42 @@ CREATE TABLE `usuario` (
 -- Indices de la tabla `apertura`
 --
 ALTER TABLE `apertura`
-  ADD PRIMARY KEY (`cod_apertura`),
-  ADD KEY `usuarioApertura` (`cod_usuario`);
+  ADD PRIMARY KEY (`id_apertura`) USING BTREE,
+  ADD KEY `usuarioApertura` (`id_usuario`);
 
 --
 -- Indices de la tabla `caja`
 --
 ALTER TABLE `caja`
-  ADD PRIMARY KEY (`cod_caja`);
+  ADD PRIMARY KEY (`id_caja`) USING BTREE;
 
 --
 -- Indices de la tabla `cierre`
 --
 ALTER TABLE `cierre`
-  ADD PRIMARY KEY (`cod_cierre`),
-  ADD KEY `usuarioCierre` (`cod_usuario`),
-  ADD KEY `apertura` (`cod_apertura`);
+  ADD PRIMARY KEY (`id_cierre`) USING BTREE,
+  ADD KEY `aperturaFK` (`id_apertura`),
+  ADD KEY `usuarioFKs` (`id_usuario`);
 
 --
 -- Indices de la tabla `persona`
 --
 ALTER TABLE `persona`
-  ADD PRIMARY KEY (`cod_persona`),
+  ADD PRIMARY KEY (`id_persona`) USING BTREE,
   ADD KEY `nombre` (`nombre`);
 
 --
 -- Indices de la tabla `planilla`
 --
 ALTER TABLE `planilla`
-  ADD PRIMARY KEY (`cod_movimiento`);
+  ADD PRIMARY KEY (`id_movimiento`) USING BTREE;
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`cod_usuario`),
-  ADD KEY `usuarioFK` (`cod_persona`);
+  ADD PRIMARY KEY (`id_usuario`) USING BTREE,
+  ADD KEY `usuarioFK` (`id_persona`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -170,60 +170,54 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `apertura`
 --
 ALTER TABLE `apertura`
-  MODIFY `cod_apertura` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_apertura` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `caja`
 --
 ALTER TABLE `caja`
-  MODIFY `cod_caja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_caja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `cierre`
 --
 ALTER TABLE `cierre`
-  MODIFY `cod_cierre` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cierre` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `cod_persona` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_persona` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `planilla`
 --
 ALTER TABLE `planilla`
-  MODIFY `cod_movimiento` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_movimiento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `cod_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
 --
 
 --
--- Filtros para la tabla `apertura`
---
-ALTER TABLE `apertura`
-  ADD CONSTRAINT `usuarioApertura` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
 -- Filtros para la tabla `cierre`
 --
 ALTER TABLE `cierre`
-  ADD CONSTRAINT `apertura` FOREIGN KEY (`cod_apertura`) REFERENCES `apertura` (`cod_apertura`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `usuarioCierre` FOREIGN KEY (`cod_usuario`) REFERENCES `usuario` (`cod_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `aperturaFK` FOREIGN KEY (`id_apertura`) REFERENCES `apertura` (`id_apertura`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `usuarioFKs` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `usuarioFK` FOREIGN KEY (`cod_persona`) REFERENCES `persona` (`cod_persona`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `usuarioFK` FOREIGN KEY (`id_persona`) REFERENCES `persona` (`id_persona`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
