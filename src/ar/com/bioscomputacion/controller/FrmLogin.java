@@ -30,7 +30,6 @@ public class FrmLogin extends javax.swing.JFrame {
         new TextPrompt("¡Ingrese su contraseña!", txtPassword);
         txtUsuario.requestFocus();
         setIconImage(new ImageIcon(getClass().getResource("/ar/com/bioscomputacion/desing/icons/forms.png")).getImage());
-        System.out.println("prueba");
     }
 
     /**
