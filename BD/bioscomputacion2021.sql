@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2021 a las 04:48:05
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 8.0.3
+-- Tiempo de generación: 23-10-2021 a las 20:53:40
+-- Versión del servidor: 10.4.21-MariaDB
+-- Versión de PHP: 8.0.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -73,6 +73,24 @@ CREATE TABLE `cierre` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `parametrizacion`
+--
+
+CREATE TABLE `parametrizacion` (
+  `porcentaje_ganancias` decimal(5,2) NOT NULL,
+  `valor_dolar` decimal(15,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Volcado de datos para la tabla `parametrizacion`
+--
+
+INSERT INTO `parametrizacion` (`porcentaje_ganancias`, `valor_dolar`) VALUES
+('50.00', '99.50');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `persona`
 --
 
@@ -101,6 +119,72 @@ CREATE TABLE `planilla` (
   `ingresos` decimal(20,2) DEFAULT NULL,
   `egresos` decimal(20,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `producto`
+--
+
+CREATE TABLE `producto` (
+  `id_producto` int(11) NOT NULL,
+  `nombre_rubro` varchar(100) DEFAULT NULL,
+  `nombre_subrubro` varchar(100) DEFAULT NULL,
+  `nombre_producto` varchar(100) NOT NULL,
+  `codigo_barra` bigint(20) DEFAULT NULL,
+  `codigo_proveedor` varchar(100) DEFAULT NULL,
+  `precio_costo` decimal(20,2) NOT NULL,
+  `precio_efectivo` decimal(20,2) NOT NULL,
+  `precio_cuotas` decimal(20,2) NOT NULL,
+  `porcentaje_ganancias` decimal(6,2) NOT NULL,
+  `stock` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rubro_planilla`
+--
+
+CREATE TABLE `rubro_planilla` (
+  `id_rubro` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rubro_producto`
+--
+
+CREATE TABLE `rubro_producto` (
+  `id_rubro` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `subrubro_planilla`
+--
+
+CREATE TABLE `subrubro_planilla` (
+  `id_subrubro` int(11) NOT NULL,
+  `id_rubro` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `subrubro_producto`
+--
+
+CREATE TABLE `subrubro_producto` (
+  `id_subrubro` int(11) NOT NULL,
+  `id_rubro` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
 
 -- --------------------------------------------------------
 
@@ -156,6 +240,44 @@ ALTER TABLE `planilla`
   ADD PRIMARY KEY (`id_movimiento`) USING BTREE;
 
 --
+-- Indices de la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD PRIMARY KEY (`id_producto`) USING BTREE,
+  ADD KEY `rubronombreFK` (`nombre_rubro`) USING BTREE,
+  ADD KEY `subrubronombreFK` (`nombre_subrubro`) USING BTREE;
+
+--
+-- Indices de la tabla `rubro_planilla`
+--
+ALTER TABLE `rubro_planilla`
+  ADD PRIMARY KEY (`id_rubro`) USING BTREE,
+  ADD UNIQUE KEY `nombre` (`nombre`) USING BTREE;
+
+--
+-- Indices de la tabla `rubro_producto`
+--
+ALTER TABLE `rubro_producto`
+  ADD PRIMARY KEY (`id_rubro`) USING BTREE,
+  ADD UNIQUE KEY `nombre` (`nombre`) USING BTREE;
+
+--
+-- Indices de la tabla `subrubro_planilla`
+--
+ALTER TABLE `subrubro_planilla`
+  ADD PRIMARY KEY (`id_subrubro`) USING BTREE,
+  ADD UNIQUE KEY `nombreSubRubro` (`nombre`) USING BTREE,
+  ADD KEY `rubroFK` (`id_rubro`) USING BTREE;
+
+--
+-- Indices de la tabla `subrubro_producto`
+--
+ALTER TABLE `subrubro_producto`
+  ADD PRIMARY KEY (`id_subrubro`) USING BTREE,
+  ADD UNIQUE KEY `nombreSubRubro` (`nombre`) USING BTREE,
+  ADD KEY `rubroFK` (`id_rubro`) USING BTREE;
+
+--
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -197,6 +319,36 @@ ALTER TABLE `planilla`
   MODIFY `id_movimiento` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `producto`
+--
+ALTER TABLE `producto`
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `rubro_planilla`
+--
+ALTER TABLE `rubro_planilla`
+  MODIFY `id_rubro` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `rubro_producto`
+--
+ALTER TABLE `rubro_producto`
+  MODIFY `id_rubro` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `subrubro_planilla`
+--
+ALTER TABLE `subrubro_planilla`
+  MODIFY `id_subrubro` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de la tabla `subrubro_producto`
+--
+ALTER TABLE `subrubro_producto`
+  MODIFY `id_subrubro` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
@@ -212,6 +364,25 @@ ALTER TABLE `usuario`
 ALTER TABLE `cierre`
   ADD CONSTRAINT `aperturaFK` FOREIGN KEY (`id_apertura`) REFERENCES `apertura` (`id_apertura`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `usuarioFKs` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `producto`
+--
+ALTER TABLE `producto`
+  ADD CONSTRAINT `rubronombreFK` FOREIGN KEY (`nombre_rubro`) REFERENCES `rubro_producto` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `subrubronombreFK` FOREIGN KEY (`nombre_subrubro`) REFERENCES `subrubro_producto` (`nombre`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `subrubro_planilla`
+--
+ALTER TABLE `subrubro_planilla`
+  ADD CONSTRAINT `subrubro_planilla_ibfk_1` FOREIGN KEY (`id_rubro`) REFERENCES `rubro_planilla` (`id_rubro`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `subrubro_producto`
+--
+ALTER TABLE `subrubro_producto`
+  ADD CONSTRAINT `rubroFK` FOREIGN KEY (`id_rubro`) REFERENCES `rubro_producto` (`id_rubro`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `usuario`
