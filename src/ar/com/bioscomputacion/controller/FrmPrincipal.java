@@ -45,7 +45,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         deskPrincipal = new javax.swing.JDesktopPane();
-        jLabel1 = new javax.swing.JLabel();
         rSLabelHora1 = new rojeru_san.RSLabelHora();
         jLabel2 = new javax.swing.JLabel();
         lbNombre = new javax.swing.JLabel();
@@ -53,6 +52,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lbTipo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtId_usuario = new javax.swing.JTextField();
+        panelLogo = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         menuPrincipal = new javax.swing.JMenuBar();
         menuVentas = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -82,8 +83,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         setTitle("Bios Computacion - SERVICES Y VENTAS");
         setResizable(false);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/desing/images/Logo-grande.png"))); // NOI18N
-
         rSLabelHora1.setForeground(new java.awt.Color(255, 255, 255));
         rSLabelHora1.setFont(new java.awt.Font("Roboto Bold", 3, 14)); // NOI18N
 
@@ -107,7 +106,27 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("Hora:");
 
-        deskPrincipal.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        panelLogo.setOpaque(false);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/desing/images/Logo-grande.png"))); // NOI18N
+
+        javax.swing.GroupLayout panelLogoLayout = new javax.swing.GroupLayout(panelLogo);
+        panelLogo.setLayout(panelLogoLayout);
+        panelLogoLayout.setHorizontalGroup(
+            panelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLogoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(223, 223, 223))
+        );
+        panelLogoLayout.setVerticalGroup(
+            panelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLogoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         deskPrincipal.setLayer(rSLabelHora1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(lbNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -115,15 +134,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         deskPrincipal.setLayer(lbTipo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(txtId_usuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        deskPrincipal.setLayer(panelLogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout deskPrincipalLayout = new javax.swing.GroupLayout(deskPrincipal);
         deskPrincipal.setLayout(deskPrincipalLayout);
         deskPrincipalLayout.setHorizontalGroup(
             deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(deskPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deskPrincipalLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deskPrincipalLayout.createSequentialGroup()
+                .addGroup(deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(deskPrincipalLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, deskPrincipalLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbNombre)
@@ -133,20 +156,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addComponent(lbTipo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtId_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 434, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deskPrincipalLayout.createSequentialGroup()
-                        .addGap(0, 242, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(248, 248, 248))))
+                        .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         deskPrincipalLayout.setVerticalGroup(
             deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deskPrincipalLayout.createSequentialGroup()
-                .addContainerGap(143, Short.MAX_VALUE)
+                .addContainerGap(124, Short.MAX_VALUE)
+                .addComponent(panelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84)
                 .addGroup(deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
@@ -155,10 +176,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addComponent(lbTipo)
                         .addComponent(jLabel5)
                         .addComponent(txtId_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(deskPrincipalLayout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 287, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(101, 101, 101)
-                        .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -660,6 +678,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public static javax.swing.JMenu menuReparaciones;
     private javax.swing.JMenu menuSalir;
     public static javax.swing.JMenu menuVentas;
+    private javax.swing.JPanel panelLogo;
     private rojeru_san.RSLabelHora rSLabelHora1;
     public javax.swing.JTextField txtId_usuario;
     // End of variables declaration//GEN-END:variables

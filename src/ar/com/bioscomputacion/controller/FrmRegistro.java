@@ -24,7 +24,7 @@ public class FrmRegistro extends javax.swing.JFrame {
     public FrmRegistro() {
         initComponents();
         this.setLocationRelativeTo(null);
-        setIconImage(new ImageIcon(getClass().getResource("/ar/com/bioscomputacion/Iconos/forms.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("/ar/com/bioscomputacion/desing/icons/forms.png")).getImage());
     }
 
     /**
