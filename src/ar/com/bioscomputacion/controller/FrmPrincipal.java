@@ -18,9 +18,7 @@ import javax.swing.plaf.basic.BasicMenuBarUI;
  */
 public class FrmPrincipal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrmPrincipal
-     */
+    int idUsuario;
     public FrmPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -32,7 +30,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 g.fillRect(0, 0, c.getWidth(), c.getHeight());
             }
         });
-        txtId_usuario.setVisible(false);
     }
 
     /**
@@ -51,7 +48,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         lbTipo = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtId_usuario = new javax.swing.JTextField();
         panelLogo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         menuPrincipal = new javax.swing.JMenuBar();
@@ -75,7 +71,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuItemCierre = new javax.swing.JMenuItem();
         menuProducto = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
         menuSalir = new javax.swing.JMenu();
 
@@ -115,7 +110,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         panelLogoLayout.setHorizontalGroup(
             panelLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLogoLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(277, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(223, 223, 223))
         );
@@ -133,7 +128,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         deskPrincipal.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(lbTipo, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        deskPrincipal.setLayer(txtId_usuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         deskPrincipal.setLayer(panelLogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout deskPrincipalLayout = new javax.swing.GroupLayout(deskPrincipal);
@@ -141,12 +135,10 @@ public class FrmPrincipal extends javax.swing.JFrame {
         deskPrincipalLayout.setHorizontalGroup(
             deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deskPrincipalLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(deskPrincipalLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelLogo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, deskPrincipalLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbNombre)
@@ -154,9 +146,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lbTipo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtId_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 434, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -165,17 +155,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         deskPrincipalLayout.setVerticalGroup(
             deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, deskPrincipalLayout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
+                .addContainerGap(183, Short.MAX_VALUE)
                 .addComponent(panelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(84, 84, 84)
+                .addGap(125, 125, 125)
                 .addGroup(deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(deskPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel2)
                         .addComponent(lbNombre)
                         .addComponent(jLabel4)
                         .addComponent(lbTipo)
-                        .addComponent(jLabel5)
-                        .addComponent(txtId_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel5))
                     .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
@@ -409,7 +398,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem11.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jMenuItem11.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/desing/menuitemicons/nuevo_producto.png"))); // NOI18N
-        jMenuItem11.setText("NUEVO PRODUCTO");
+        jMenuItem11.setText("GESTIÓN DE PRODUCTOS");
         jMenuItem11.setOpaque(true);
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -418,26 +407,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         menuProducto.add(jMenuItem11);
 
-        jMenuItem12.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F10, 0));
-        jMenuItem12.setBackground(new java.awt.Color(51, 84, 111));
-        jMenuItem12.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
-        jMenuItem12.setForeground(new java.awt.Color(255, 255, 255));
-        jMenuItem12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/desing/menuitemicons/gestion_stock.png"))); // NOI18N
-        jMenuItem12.setText("GESTIÓN DE STOCK");
-        jMenuItem12.setOpaque(true);
-        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem12ActionPerformed(evt);
-            }
-        });
-        menuProducto.add(jMenuItem12);
-
         jMenuItem13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F11, 0));
         jMenuItem13.setBackground(new java.awt.Color(51, 84, 111));
         jMenuItem13.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
         jMenuItem13.setForeground(new java.awt.Color(255, 255, 255));
         jMenuItem13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/desing/menuitemicons/gestion_categorias.png"))); // NOI18N
-        jMenuItem13.setText("GESTIÓN DE CATEGORIAS");
+        jMenuItem13.setText("GESTIÓN DE RUBROS / SUB RUBROS");
         jMenuItem13.setOpaque(true);
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -523,7 +498,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.setClosable(true);
         form.setIconifiable(false);
         form.txtEmpleado.setText(this.lbNombre.getText());
-        form.txtCod_usuario.setText(this.txtId_usuario.getText());
+        form.txtCod_usuario.setText(String.valueOf(this.idUsuario));
     }//GEN-LAST:event_menuItemAperturaActionPerformed
 
     private void menuItemCierreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemCierreActionPerformed
@@ -539,7 +514,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.setClosable(true);
         form.setIconifiable(false);
         form.txtEmpleado.setText(this.lbNombre.getText());
-        form.txtCod_usuario.setText(this.txtId_usuario.getText());
+        form.txtCod_usuario.setText(String.valueOf(this.idUsuario));
     }//GEN-LAST:event_menuItemCierreActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -600,15 +575,31 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        // TODO add your handling code here:
+        FrmGestionDeProducto form = new FrmGestionDeProducto();
+
+        deskPrincipal.add(form);
+        Dimension desktopSize = deskPrincipal.getSize();
+        Dimension FrameSize = form.getSize();
+
+        form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        form.setVisible(true);
+
+        form.setClosable(true);
+        form.setIconifiable(false);
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
-    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem12ActionPerformed
-
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        // TODO add your handling code here:
+        FrmGestionRubro form = new FrmGestionRubro();
+
+        deskPrincipal.add(form);
+        Dimension desktopSize = deskPrincipal.getSize();
+        Dimension FrameSize = form.getSize();
+
+        form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        form.setVisible(true);
+
+        form.setClosable(true);
+        form.setIconifiable(false);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
     /**
@@ -655,7 +646,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
     private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -680,6 +670,5 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public static javax.swing.JMenu menuVentas;
     private javax.swing.JPanel panelLogo;
     private rojeru_san.RSLabelHora rSLabelHora1;
-    public javax.swing.JTextField txtId_usuario;
     // End of variables declaration//GEN-END:variables
 }

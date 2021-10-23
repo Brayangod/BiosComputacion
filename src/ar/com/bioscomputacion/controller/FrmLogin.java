@@ -225,7 +225,7 @@ public class FrmLogin extends javax.swing.JFrame {
                             form.setVisible(true);
                             form.lbNombre.setText(login.nombre);
                             form.lbTipo.setText(login.tipo);
-                            form.txtId_usuario.setText(String.valueOf(login.id_usuario));
+                            form.idUsuario = login.id_usuario;
                             if(!new AperturaDAO().isCajaAbierta()){
                                 FrmPrincipal.menuVentas.setEnabled(false);
                                 FrmPrincipal.menuPlanilla.setEnabled(false);
