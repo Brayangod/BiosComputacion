@@ -230,7 +230,7 @@ public class FrmGestionSubRubroPlanilla extends javax.swing.JInternalFrame {
     private void rSButtonRiple1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonRiple1ActionPerformed
         String nombre = String.valueOf(JOptionPane.showInputDialog(null, "Ingrese el nombre del sub rubro", "ALTA DE SUB RUBRO", JOptionPane.QUESTION_MESSAGE)).toUpperCase();
         SubRubroPlanillaDAO subRubroDao = new SubRubroPlanillaDAO();
-        if (nombre.equals("null")) {
+        if (nombre.equals("NULL")) {
             JOptionPane.showMessageDialog(null, "Movimiento cancelado");
             btnActualizar.doClick();
             fila = -1;
@@ -257,7 +257,7 @@ public class FrmGestionSubRubroPlanilla extends javax.swing.JInternalFrame {
             String nombre = String.valueOf(JOptionPane.showInputDialog(null, "Ingrese el nombre del sub rubro", "MODIFICACION DE SUB RUBRO", JOptionPane.QUESTION_MESSAGE)).toUpperCase();
             SubRubroPlanillaDAO subRubroDao = new SubRubroPlanillaDAO();
 
-            if (nombre.equals("null")) {
+            if (nombre.equals("NULL")) {
                 JOptionPane.showMessageDialog(null, "Movimiento cancelado");
                 btnActualizar.doClick();
                 fila = -1;
