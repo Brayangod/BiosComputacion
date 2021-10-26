@@ -6,32 +6,30 @@
 package ar.com.bioscomputacion.controller;
 
 import static ar.com.bioscomputacion.controller.FrmPrincipal.deskPrincipal;
-import ar.com.bioscomputacion.data.RubroProductoDAO;
-import ar.com.bioscomputacion.data.SubRubroProductoDAO;
+import ar.com.bioscomputacion.data.RubroPlanillaDAO;
 import java.awt.Dimension;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Caco
+ * @author Brayan
  */
-public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
+public class FrmGestionRubroPlanilla extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form FrmGenerico
      */
     int fila = -1;
-    public int id_rubro;
 
-    public FrmGestionSubRubro() {
+    public FrmGestionRubroPlanilla() {
         initComponents();
-        mostrar(id_rubro, "");
+        mostrar("");
     }
 
-    public void mostrar(int id_rubro, String buscar) {
-        SubRubroProductoDAO subRubroDao = new SubRubroProductoDAO();
+    public void mostrar(String buscar) {
+        RubroPlanillaDAO rubroDao = new RubroPlanillaDAO();
 
-        tablaSubRubro.setModel(subRubroDao.listarTabla(id_rubro, buscar));
+        tablaRubro.setModel(rubroDao.listarTabla(buscar));
 
     }
 
@@ -52,7 +50,7 @@ public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         txtBuscar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaSubRubro = new javax.swing.JTable();
+        tablaRubro = new javax.swing.JTable();
         rSButtonRiple1 = new rojeru_san.RSButtonRiple();
         rSButtonRiple2 = new rojeru_san.RSButtonRiple();
         rSButtonRiple3 = new rojeru_san.RSButtonRiple();
@@ -66,11 +64,11 @@ public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("GESTIÓN DE SUB RUBROS");
+        jLabel1.setText("GESTIÓN DE RUBROS - PLANILLA DE CONTROL");
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("BUSCAR SUB RUBRO:");
+        jLabel2.setText("BUSCAR RUBRO:");
 
         txtBuscar.setBackground(new java.awt.Color(51, 84, 111));
         txtBuscar.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
@@ -81,7 +79,7 @@ public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
             }
         });
 
-        tablaSubRubro.setModel(new javax.swing.table.DefaultTableModel(
+        tablaRubro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -89,12 +87,12 @@ public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
 
             }
         ));
-        tablaSubRubro.addMouseListener(new java.awt.event.MouseAdapter() {
+        tablaRubro.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaSubRubroMouseClicked(evt);
+                tablaRubroMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tablaSubRubro);
+        jScrollPane1.setViewportView(tablaRubro);
 
         rSButtonRiple1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/desing/icons/agregar.png"))); // NOI18N
         rSButtonRiple1.setText("AGREGAR");
@@ -115,7 +113,7 @@ public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
         });
 
         rSButtonRiple3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/desing/icons/buscar.png"))); // NOI18N
-        rSButtonRiple3.setText("RUBROS");
+        rSButtonRiple3.setText("SUB RUBROS");
         rSButtonRiple3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         rSButtonRiple3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +181,7 @@ public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(rSPanelShadow2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rSButtonRiple1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -218,56 +216,56 @@ public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyReleased
-        mostrar(id_rubro, txtBuscar.getText());
+        mostrar(txtBuscar.getText());
     }//GEN-LAST:event_txtBuscarKeyReleased
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-        mostrar(id_rubro, "");
+        mostrar("");
         txtBuscar.setText("");
         fila = -1;
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void rSButtonRiple1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonRiple1ActionPerformed
-        String nombre = String.valueOf(JOptionPane.showInputDialog(null, "Ingrese el nombre del sub rubro", "ALTA DE SUB RUBRO", JOptionPane.QUESTION_MESSAGE)).toUpperCase();
-        SubRubroProductoDAO subRubroDao = new SubRubroProductoDAO();
+        String nombre = String.valueOf(JOptionPane.showInputDialog(null, "Ingrese el nombre del rubro", "ALTA DE RUBRO", JOptionPane.QUESTION_MESSAGE)).toUpperCase();
+        RubroPlanillaDAO rubroDao = new RubroPlanillaDAO();
         if (nombre.equals("null")) {
             JOptionPane.showMessageDialog(null, "Movimiento cancelado");
             btnActualizar.doClick();
             fila = -1;
         } else {
-            if (subRubroDao.agregar(id_rubro, nombre)) {
-                JOptionPane.showMessageDialog(null, "El sub rubro se agrego satisfactoriamente");
+            if (rubroDao.agregar(nombre)) {
+                JOptionPane.showMessageDialog(null, "El rubro se agrego satisfactoriamente");
                 btnActualizar.doClick();
             } else {
-                JOptionPane.showMessageDialog(null, "Ocurrió un error al agregar el sub rubro");
+                JOptionPane.showMessageDialog(null, "Ocurrió un error al agregar el rubro");
                 btnActualizar.doClick();
             }
         }
 
     }//GEN-LAST:event_rSButtonRiple1ActionPerformed
 
-    private void tablaSubRubroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaSubRubroMouseClicked
-        fila = tablaSubRubro.getSelectedRow();
-    }//GEN-LAST:event_tablaSubRubroMouseClicked
+    private void tablaRubroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaRubroMouseClicked
+        fila = tablaRubro.getSelectedRow();
+    }//GEN-LAST:event_tablaRubroMouseClicked
 
     private void rSButtonRiple2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonRiple2ActionPerformed
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Seleccione el sub rubro que desea modificar");
+            JOptionPane.showMessageDialog(null, "Seleccione el rubro que desea modificar");
         } else {
-            String nombre = String.valueOf(JOptionPane.showInputDialog(null, "Ingrese el nombre del sub rubro", "MODIFICACION DE SUB RUBRO", JOptionPane.QUESTION_MESSAGE)).toUpperCase();
-            SubRubroProductoDAO subRubroDao = new SubRubroProductoDAO();
+            String nombre = String.valueOf(JOptionPane.showInputDialog(null, "Ingrese el nombre del rubro", "MODIFICACION DE RUBRO", JOptionPane.QUESTION_MESSAGE)).toUpperCase();
+            RubroPlanillaDAO rubroDao = new RubroPlanillaDAO();
 
             if (nombre.equals("null")) {
                 JOptionPane.showMessageDialog(null, "Movimiento cancelado");
                 btnActualizar.doClick();
                 fila = -1;
             } else {
-                if (subRubroDao.editar(Integer.parseInt(tablaSubRubro.getValueAt(fila, 0).toString()), nombre)) {
-                    JOptionPane.showMessageDialog(null, "El sub rubro se modificó satisfactoriamente");
+                if (rubroDao.editar(Integer.parseInt(tablaRubro.getValueAt(fila, 0).toString()), nombre)) {
+                    JOptionPane.showMessageDialog(null, "El rubro se modificó satisfactoriamente");
                     btnActualizar.doClick();
                     fila = -1;
                 } else {
-                    JOptionPane.showMessageDialog(null, "Ocurrió un error al agregar el sub rubro");
+                    JOptionPane.showMessageDialog(null, "Ocurrió un error al agregar el rubro");
                     btnActualizar.doClick();
                     fila = -1;
                 }
@@ -277,17 +275,17 @@ public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
 
     private void rSButtonRiple4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonRiple4ActionPerformed
         if (fila == -1) {
-            JOptionPane.showMessageDialog(null, "Seleccione el sub rubro que desea eliminar");
+            JOptionPane.showMessageDialog(null, "Seleccione el rubro que desea eliminar");
         } else {
-            SubRubroProductoDAO subRubroDao = new SubRubroProductoDAO();
+            RubroPlanillaDAO rubroDao = new RubroPlanillaDAO();
 
-            if (JOptionPane.showConfirmDialog(null, "Desea eliminar el sub rubro", "Está seguro que desea eliminar el rubro?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
-                if (subRubroDao.eliminar(Integer.parseInt(tablaSubRubro.getValueAt(fila, 0).toString()))) {
-                    JOptionPane.showMessageDialog(null, "El sub rubro se eliminó satisfactoriamente");
+            if (JOptionPane.showConfirmDialog(null, "Todos los sub rubros de este rubro seran tambien eliminados permanentemente", "Está seguro que desea eliminar el rubro?", JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == 0) {
+                if (rubroDao.eliminar(Integer.parseInt(tablaRubro.getValueAt(fila, 0).toString()))) {
+                    JOptionPane.showMessageDialog(null, "El rubro se eliminó satisfactoriamente");
                     btnActualizar.doClick();
                     fila = -1;
                 } else {
-                    JOptionPane.showMessageDialog(null, "Ocurrió un error al eliminar el sub rubro");
+                    JOptionPane.showMessageDialog(null, "Ocurrió un error al eliminar el rubro");
                     btnActualizar.doClick();
                     fila = -1;
                 }
@@ -301,18 +299,24 @@ public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rSButtonRiple4ActionPerformed
 
     private void rSButtonRiple3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonRiple3ActionPerformed
-        FrmGestionRubro form = new FrmGestionRubro();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(null, "Seleccione el rubro que desea gestionar los sub rubros");
+        } else {
+            FrmGestionSubRubroPlanilla form = new FrmGestionSubRubroPlanilla();
 
-        deskPrincipal.add(form);
-        Dimension desktopSize = deskPrincipal.getSize();
-        Dimension FrameSize = form.getSize();
+            deskPrincipal.add(form);
+            Dimension desktopSize = deskPrincipal.getSize();
+            Dimension FrameSize = form.getSize();
 
-        form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
-        form.setVisible(true);
+            form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+            form.setVisible(true);
 
-        form.setClosable(true);
-        form.setIconifiable(false);
-        this.dispose();
+            form.setClosable(true);
+            form.setIconifiable(false);
+            form.id_rubro = Integer.parseInt(tablaRubro.getValueAt(fila, 0).toString());
+            form.mostrar(Integer.parseInt(tablaRubro.getValueAt(fila, 0).toString()), "");
+            this.dispose();
+        }
     }//GEN-LAST:event_rSButtonRiple3ActionPerformed
 
 
@@ -329,7 +333,7 @@ public class FrmGestionSubRubro extends javax.swing.JInternalFrame {
     private rojeru_san.RSButtonRiple rSButtonRiple4;
     private rojeru_san.RSPanelShadow rSPanelShadow1;
     private rojeru_san.RSPanelShadow rSPanelShadow2;
-    private javax.swing.JTable tablaSubRubro;
+    private javax.swing.JTable tablaRubro;
     private javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables
 }

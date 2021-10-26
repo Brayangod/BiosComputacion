@@ -6,6 +6,8 @@
 package ar.com.bioscomputacion.controller;
 
 import ar.com.bioscomputacion.data.PlanillaDAO;
+import ar.com.bioscomputacion.data.RubroPlanillaDAO;
+import ar.com.bioscomputacion.data.SubRubroPlanillaDAO;
 import ar.com.bioscomputacion.entity.Planilla;
 import java.sql.Timestamp;
 import java.text.DecimalFormat;
@@ -25,6 +27,30 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
     public FrmPlanillaDeControlNuevoMovimiento() {
         initComponents();
         txtNombrepersona.setVisible(false);
+        listarRubros();
+        listarSubRubros();
+    }
+    
+    public void listarRubros() {
+        RubroPlanillaDAO rubroDao = new RubroPlanillaDAO();
+
+        for (String rubros : rubroDao.listar()) {
+            cbRubro.addItem(rubros);
+        }
+
+    }
+
+    public void listarSubRubros() {
+        cbSubRubro.removeAllItems();
+        SubRubroPlanillaDAO subRubroDao = new SubRubroPlanillaDAO();
+
+        if (cbRubro.getSelectedItem() != null) {
+            for (String subRubros : subRubroDao.listar(cbRubro.getSelectedItem().toString())) {
+                cbSubRubro.addItem(subRubros);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Recuerde agregar los rubros y/o sub rubros necesarios para el alta del producto");
+        }
     }
 
     /**
@@ -47,12 +73,12 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
         jLabel6 = new javax.swing.JLabel();
         JcbMovimiento = new javax.swing.JComboBox<>();
         txtMonto = new javax.swing.JTextField();
-        txtObservaciones = new javax.swing.JTextField();
-        jCbRubro = new javax.swing.JComboBox<>();
+        cbRubro = new javax.swing.JComboBox<>();
         jCbTipoMoneda = new javax.swing.JComboBox<>();
         txtNombrepersona = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         rSButtonRiple1 = new rojeru_san.RSButtonRiple();
+        cbSubRubro = new javax.swing.JComboBox<>();
 
         jPanel1.setBackground(new java.awt.Color(51, 84, 111));
 
@@ -70,7 +96,7 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Observaciones:");
+        jLabel3.setText("Sub Rubro");
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
@@ -108,16 +134,12 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
             }
         });
 
-        txtObservaciones.setBackground(new java.awt.Color(51, 84, 111));
-        txtObservaciones.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        txtObservaciones.setForeground(new java.awt.Color(255, 255, 255));
-
-        jCbRubro.setBackground(new java.awt.Color(51, 84, 111));
-        jCbRubro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jCbRubro.setForeground(new java.awt.Color(255, 255, 255));
-        jCbRubro.addActionListener(new java.awt.event.ActionListener() {
+        cbRubro.setBackground(new java.awt.Color(51, 84, 111));
+        cbRubro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cbRubro.setForeground(new java.awt.Color(255, 255, 255));
+        cbRubro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCbRubroActionPerformed(evt);
+                cbRubroActionPerformed(evt);
             }
         });
 
@@ -145,6 +167,15 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
             }
         });
 
+        cbSubRubro.setBackground(new java.awt.Color(51, 84, 111));
+        cbSubRubro.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cbSubRubro.setForeground(new java.awt.Color(255, 255, 255));
+        cbSubRubro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbSubRubroActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout rSPanelShadow1Layout = new javax.swing.GroupLayout(rSPanelShadow1);
         rSPanelShadow1.setLayout(rSPanelShadow1Layout);
         rSPanelShadow1Layout.setHorizontalGroup(
@@ -153,27 +184,25 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
                 .addContainerGap()
                 .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(rSPanelShadow1Layout.createSequentialGroup()
-                        .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
+                        .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(rSPanelShadow1Layout.createSequentialGroup()
-                                .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(rSPanelShadow1Layout.createSequentialGroup()
-                                        .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel2))
-                                        .addGap(18, 18, 18))
-                                    .addGroup(rSPanelShadow1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel7)
-                                        .addGap(4, 4, 4)))
-                                .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(JcbMovimiento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtObservaciones)
-                                    .addComponent(txtMonto, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jCbRubro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jCbTipoMoneda, 0, 230, Short.MAX_VALUE))))
+                                .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18))
+                            .addGroup(rSPanelShadow1Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7)
+                                .addGap(6, 6, 6)))
+                        .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtMonto)
+                            .addComponent(JcbMovimiento, javax.swing.GroupLayout.Alignment.LEADING, 0, 230, Short.MAX_VALUE)
+                            .addComponent(cbRubro, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbSubRubro, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jCbTipoMoneda, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jSeparator1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelShadow1Layout.createSequentialGroup()
@@ -197,21 +226,21 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jCbRubro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbRubro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(cbSubRubro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jCbTipoMoneda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtObservaciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(rSPanelShadow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtNombrepersona, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rSButtonRiple1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -250,30 +279,30 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
         String seleccion = JcbMovimiento.getSelectedItem().toString();
 
         if (seleccion == "INGRESO") {
-            jCbRubro.setEnabled(true);
-            jCbRubro.removeAllItems();
+            cbRubro.setEnabled(true);
+            cbRubro.removeAllItems();
             for (String ingreso : ingresos) {
-                jCbRubro.addItem(ingreso);
+                cbRubro.addItem(ingreso);
             }
         }
 
         if (seleccion == "EGRESO") {
-            jCbRubro.setEnabled(true);
-            jCbRubro.removeAllItems();
+            cbRubro.setEnabled(true);
+            cbRubro.removeAllItems();
             for (String egreso : egresos) {
-                jCbRubro.addItem(egreso);
+                cbRubro.addItem(egreso);
             }
         }
 
         if (seleccion == "SELECCIONE") {
-            jCbRubro.setEnabled(false);
-            jCbRubro.removeAllItems();
+            cbRubro.setEnabled(false);
+            cbRubro.removeAllItems();
         }
     }//GEN-LAST:event_JcbMovimientoActionPerformed
 
-    private void jCbRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbRubroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCbRubroActionPerformed
+    private void cbRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRubroActionPerformed
+        listarSubRubros();
+    }//GEN-LAST:event_cbRubroActionPerformed
 
     private void jCbTipoMonedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbTipoMonedaActionPerformed
         // TODO add your handling code here:
@@ -299,7 +328,7 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
         Planilla planilla;
         PlanillaDAO planillaDao = new PlanillaDAO();
         if(JcbMovimiento.getSelectedItem().equals("INGRESO")){
-            planilla = new Planilla(txtNombrepersona.getText(), Timestamp.valueOf(currentTime), jCbRubro.getSelectedItem().toString(), txtObservaciones.getText(), jCbTipoMoneda.getSelectedItem().toString(), Double.valueOf(txtMonto.getText()), 0.00);
+            planilla = new Planilla(txtNombrepersona.getText(), Timestamp.valueOf(currentTime), cbRubro.getSelectedItem().toString(), cbSubRubro.getSelectedItem().toString(), jCbTipoMoneda.getSelectedItem().toString(), Double.valueOf(txtMonto.getText()), 0.00);
             if(planillaDao.insertar(planilla)){
                 JOptionPane.showMessageDialog(null, "Movimiento dado de alta satisfactoriamente");
                 this.dispose();
@@ -312,7 +341,7 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
             }
         }
         else if(JcbMovimiento.getSelectedItem().equals("EGRESO")){
-            planilla = new Planilla(txtNombrepersona.getText(), Timestamp.valueOf(currentTime), jCbRubro.getSelectedItem().toString(), txtObservaciones.getText(), jCbTipoMoneda.getSelectedItem().toString(), 0.00, Double.valueOf(txtMonto.getText()));
+            planilla = new Planilla(txtNombrepersona.getText(), Timestamp.valueOf(currentTime), cbRubro.getSelectedItem().toString(), cbSubRubro.getSelectedItem().toString(), jCbTipoMoneda.getSelectedItem().toString(), 0.00, Double.valueOf(txtMonto.getText()));
             if(planillaDao.insertar(planilla)){
                 JOptionPane.showMessageDialog(null, "Movimiento dado de alta satisfactoriamente");
                 this.dispose();
@@ -327,10 +356,15 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
         
     }//GEN-LAST:event_rSButtonRiple1ActionPerformed
 
+    private void cbSubRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSubRubroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbSubRubroActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> JcbMovimiento;
-    private javax.swing.JComboBox<String> jCbRubro;
+    private javax.swing.JComboBox<String> cbRubro;
+    private javax.swing.JComboBox<String> cbSubRubro;
     private javax.swing.JComboBox<String> jCbTipoMoneda;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -345,6 +379,5 @@ public class FrmPlanillaDeControlNuevoMovimiento extends javax.swing.JInternalFr
     private rojeru_san.RSPanelShadow rSPanelShadow1;
     private javax.swing.JTextField txtMonto;
     public javax.swing.JTextField txtNombrepersona;
-    private javax.swing.JTextField txtObservaciones;
     // End of variables declaration//GEN-END:variables
 }

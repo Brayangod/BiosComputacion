@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author braya
  */
-public class SubRubroProductoDAO {
+public class SubRubroPlanillaDAO {
     
     ConexionBD mysql = new ConexionBD();
     Connection cn = mysql.getConexionBD();
@@ -28,7 +28,7 @@ public class SubRubroProductoDAO {
         List<String> subRubros = new ArrayList<>();
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT s.nombre FROM subrubro_producto s INNER JOIN rubro_producto r ON s.id_rubro = r.id_rubro WHERE r.nombre ='"+nombre+"'");
+            ResultSet rs = st.executeQuery("SELECT s.nombre FROM subrubro_planilla s INNER JOIN rubro_planilla r ON s.id_rubro = r.id_rubro WHERE r.nombre ='"+nombre+"'");
             
             while(rs.next()){
                 subRubros.add(rs.getString("s.nombre"));
@@ -60,7 +60,7 @@ public class SubRubroProductoDAO {
         };
         try {
             Statement st = cn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT id_subrubro,nombre FROM subrubro_producto WHERE id_rubro='"+id_rubro+"' AND nombre LIKE '%" + buscar + "%' ORDER BY id_rubro ASC");
+            ResultSet rs = st.executeQuery("SELECT id_subrubro,nombre FROM subrubro_planilla WHERE id_rubro='"+id_rubro+"' AND nombre LIKE '%" + buscar + "%' ORDER BY id_rubro ASC");
 
             while (rs.next()) {
                 registros[0] = rs.getString("id_subrubro");
@@ -80,7 +80,7 @@ public class SubRubroProductoDAO {
 
         try {
 
-            PreparedStatement pst = cn.prepareStatement("INSERT INTO subrubro_producto (id_rubro,nombre) VALUES (?,?)");
+            PreparedStatement pst = cn.prepareStatement("INSERT INTO subrubro_planilla (id_rubro,nombre) VALUES (?,?)");
 
             pst.setInt(1, id_rubro);
             pst.setString(2, nombre);
@@ -108,7 +108,7 @@ public class SubRubroProductoDAO {
 
         try {
 
-            PreparedStatement pst = cn.prepareStatement("UPDATE subrubro_producto SET nombre = ? WHERE id_subrubro ='"+id_subrubro+"'");
+            PreparedStatement pst = cn.prepareStatement("UPDATE subrubro_planilla SET nombre = ? WHERE id_subrubro ='"+id_subrubro+"'");
 
             pst.setString(1, nombre);
 
@@ -135,7 +135,7 @@ public class SubRubroProductoDAO {
 
         try {
 
-            PreparedStatement pst = cn.prepareStatement("DELETE FROM subrubro_producto WHERE id_subrubro = ?");
+            PreparedStatement pst = cn.prepareStatement("DELETE FROM subrubro_planilla WHERE id_subrubro = ?");
 
             pst.setInt(1, id_subrubro);
 

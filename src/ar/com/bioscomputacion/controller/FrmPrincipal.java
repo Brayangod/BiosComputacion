@@ -57,6 +57,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         menuPlanilla = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem14 = new javax.swing.JMenuItem();
         menuReparaciones = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -245,6 +246,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
             }
         });
         menuPlanilla.add(jMenuItem2);
+
+        jMenuItem14.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F11, 0));
+        jMenuItem14.setBackground(new java.awt.Color(51, 84, 111));
+        jMenuItem14.setFont(new java.awt.Font("Arial", 1, 10)); // NOI18N
+        jMenuItem14.setForeground(new java.awt.Color(255, 255, 255));
+        jMenuItem14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ar/com/bioscomputacion/desing/menuitemicons/gestion_categorias.png"))); // NOI18N
+        jMenuItem14.setText("GESTIÓN DE RUBROS / SUB RUBROS");
+        jMenuItem14.setOpaque(true);
+        jMenuItem14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem14ActionPerformed(evt);
+            }
+        });
+        menuPlanilla.add(jMenuItem14);
 
         menuPrincipal.add(menuPlanilla);
 
@@ -589,7 +604,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
-        FrmGestionRubro form = new FrmGestionRubro();
+        FrmGestionRubroProducto form = new FrmGestionRubroProducto();
 
         deskPrincipal.add(form);
         Dimension desktopSize = deskPrincipal.getSize();
@@ -601,6 +616,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
         form.setClosable(true);
         form.setIconifiable(false);
     }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        FrmGestionRubroPlanilla form = new FrmGestionRubroPlanilla();
+
+        deskPrincipal.add(form);
+        Dimension desktopSize = deskPrincipal.getSize();
+        Dimension FrameSize = form.getSize();
+
+        form.setLocation((desktopSize.width - FrameSize.width) / 2, (desktopSize.height - FrameSize.height) / 2);
+        form.setVisible(true);
+
+        form.setClosable(true);
+        form.setIconifiable(false);
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -647,6 +676,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem13;
+    private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

@@ -25,7 +25,7 @@ public class Planilla {
     private String nom_vendedor;
     private Timestamp fecha;
     private String rubro;
-    private String observacion;
+    private String subRubro;
     private String tipo_moneda;
     private Double ingresos;
     private Double egresos;
@@ -33,11 +33,11 @@ public class Planilla {
     public Planilla() {
     }
 
-    public Planilla(String nom_vendedor, Timestamp fecha, String rubro, String observacion, String tipo_moneda, Double ingresos, Double egresos) {
+    public Planilla(String nom_vendedor, Timestamp fecha, String rubro, String subRubro, String tipo_moneda, Double ingresos, Double egresos) {
         this.nom_vendedor = nom_vendedor;
         this.fecha = fecha;
         this.rubro = rubro;
-        this.observacion = observacion;
+        this.subRubro = subRubro;
         this.tipo_moneda = tipo_moneda;
         this.ingresos = ingresos;
         this.egresos = egresos;
@@ -74,12 +74,12 @@ public class Planilla {
         this.rubro = rubro;
     }
 
-    public String getObservacion() {
-        return observacion;
+    public String getSubRubro() {
+        return subRubro;
     }
 
-    public void setObservacion(String observacion) {
-        this.observacion = observacion;
+    public void setSubRubro(String subRubro) {
+        this.subRubro = subRubro;
     }
 
     public String getTipo_moneda() {

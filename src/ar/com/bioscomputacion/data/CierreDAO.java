@@ -25,7 +25,7 @@ public class CierreDAO {
         try {
             PreparedStatement pst = cn.prepareStatement("INSERT INTO cierre (id_apertura,id_usuario,saldo_cierre,fecha_cierre,diferencia_cierre) VALUES ((SELECT id_apertura FROM apertura ORDER BY id_apertura DESC LIMIT 1),?,?,?,?)");
             
-            PreparedStatement pst2 = cn.prepareStatement("INSERT INTO planilla (nom_vendedor,fecha_movimiento,rubro,observacion,tipo_moneda,ingresos,egresos)"
+            PreparedStatement pst2 = cn.prepareStatement("INSERT INTO planilla (nom_vendedor,fecha_movimiento,rubro,subrubro,tipo_moneda,ingresos,egresos)"
                     + " VALUES ((SELECT p.nombre FROM persona p INNER JOIN usuario u ON p.id_persona = u.id_persona AND u.id_usuario ='"+datos.getId_usuario()+"'),?,?,?,?,?,?)");
 
             PreparedStatement pst3 = cn.prepareStatement("UPDATE caja SET estado='CERRADA'");
@@ -37,7 +37,7 @@ public class CierreDAO {
             pst.setDouble(4, datos.getDiferencia());
 
             pst2.setTimestamp(1, datos.getFecha());
-            pst2.setString(2, "OTROS");
+            pst2.setString(2, "CAJA");
             pst2.setString(3, "CIERRE CAJA");
             pst2.setString(4, "EFECTIVO");
             pst2.setDouble(5, 0.00);

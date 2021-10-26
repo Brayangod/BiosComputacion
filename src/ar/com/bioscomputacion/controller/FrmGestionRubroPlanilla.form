@@ -109,7 +109,7 @@
                           <Component id="btnActualizar" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="182" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" pref="178" max="32767" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="rSButtonRiple1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -131,7 +131,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="GESTI&#xd3;N DE SUB RUBROS"/>
+                <Property name="text" type="java.lang.String" value="GESTI&#xd3;N DE RUBROS - PLANILLA DE CONTROL"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -144,7 +144,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="BUSCAR SUB RUBRO:"/>
+                <Property name="text" type="java.lang.String" value="BUSCAR RUBRO:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtBuscar">
@@ -170,7 +170,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tablaSubRubro">
+                <Component class="javax.swing.JTable" name="tablaRubro">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="0" rowCount="0"/>
@@ -183,7 +183,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaSubRubroMouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tablaRubroMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -221,7 +221,7 @@
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                   <Image iconType="3" name="/ar/com/bioscomputacion/desing/icons/buscar.png"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="RUBROS"/>
+                <Property name="text" type="java.lang.String" value="SUB RUBROS"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="14" style="1"/>
                 </Property>
