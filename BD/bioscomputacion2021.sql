@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-10-2021 a las 20:53:40
+-- Tiempo de generación: 26-10-2021 a las 04:08:24
 -- Versión del servidor: 10.4.21-MariaDB
--- Versión de PHP: 8.0.11
+-- Versión de PHP: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -114,7 +114,7 @@ CREATE TABLE `planilla` (
   `nom_vendedor` varchar(60) NOT NULL,
   `fecha_movimiento` datetime NOT NULL,
   `rubro` varchar(100) NOT NULL,
-  `observacion` varchar(100) NOT NULL,
+  `subrubro` varchar(100) NOT NULL,
   `tipo_moneda` varchar(60) NOT NULL,
   `ingresos` decimal(20,2) DEFAULT NULL,
   `egresos` decimal(20,2) DEFAULT NULL
